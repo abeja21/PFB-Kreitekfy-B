@@ -95,4 +95,13 @@
     font-size: 14px;
     color: hsl(0, 0%, 70%);
   }
+
+  .border-bottom{
+    display: grid;
+    grid-gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    border-top: 1px solid #444;
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+  }
   
