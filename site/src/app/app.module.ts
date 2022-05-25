@@ -11,6 +11,7 @@ import { SongsMostFamousComponent } from './entities/songs-most-famous/songs-mos
 import { SongsBestRatedComponent } from './entities/songs-best-rated/songs-best-rated.component';
 import { SongsForYouComponent } from './entities/songs-for-you/songs-for-you.component';
 import { SongDetailsComponent } from './entities/song-details/song-details.component';
+import { AuthenticationComponent } from './layouts/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SongDetailsComponent } from './entities/song-details/song-details.compo
     SongsMostFamousComponent,
     SongsBestRatedComponent,
     SongsForYouComponent,
-    SongDetailsComponent
+    SongDetailsComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
