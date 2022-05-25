@@ -1,57 +1,19 @@
-<body>
+
   <header>
     <div class="nav-left">
-      <a href="#"><i style="font-size:28px" class="fa r-arrow">&#xf104;</i></a>
-      <a href="#"><i style="font-size:28px" class="fa">&#xf105;</i></a>
-      <input class="nav-search" type="text" placeholder=" Search">
+      <a href="#"><i style="font-size: 28px" class="fa r-arrow">&#xf104;</i></a>
+      <a href="#"><i style="font-size: 28px" class="fa">&#xf105;</i></a>
+      <input class="nav-search" type="text" placeholder=" Search" />
     </div>
     <div class="nav-right">
-
-      <img class="nav-image" src="https://icon-library.com/images/my-profile-icon-png/my-profile-icon-png-22.jpg">
+      <img
+        class="nav-image"
+        src="https://icon-library.com/images/my-profile-icon-png/my-profile-icon-png-22.jpg"
+      />
       <a class="username" href="#">fmckenna56330</a>
     </div>
   </header>
 
-  <div class="navigation">
-    <!-- <div class="dots">...</div>
-    <div class="home-browse-radio">
-      <div class="hbr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAXVBMVEUAAAD///+hoaGlpaWSkpLW1ta9vb3o6OiBgYG7u7s/Pz+EhIRERESAgIDq6urAwMA4ODhoaGgxMTE8PDxCQkJLS0uOjo5fX1/4+PjS0tKamporKytpaWl2dnba2tpRiQu7AAADXUlEQVR4nO2d7XLaMBAAY0ghJnwGkrS05f0fs0nbY4qxbEmWfCd3929mYu3MjuSzIXl4AAAAAAAAKJBX7QXkpq5q7SVkZb2sqmq51l5GPjbVHzbaC8nFrhJ22kvJwu9ChSmW+lTd8qS9oNQsqiYL7SUlZbW9E6yq7Up7Wel4bvH75Fl7Yam4L3Rape7bCr2Wutde3nCae2iT4vdUd6HTKPVl2Sv4cfq/aC8znr5Ciy+1v9CyS135FHottcDTf9OvdUNxE5V/oUJZpa5DChVKmqh899Amxeypu34XB2XM/lGFCiWU6pqUfDE/UYXvoU1s76nrrknJl63hUocWKpgttU4kWBl98n9MUaiwPWrr3BN7yrswd/qnK1SwVep+yCnvYmnoKVXopOSLmYkqfaGCjVKDZvlQLMz+uQoV1Esdfh/ah+596ilnocLypCeY+pR3oXb65y9U0Cm19a1nLjTepqaalHwZfaIar1Bh3FJHLVQYs9SxCxVGKzX+eehQxnmemmVS8mWMiUqrUCF7qePvoU3y7qlHzUKFZcanVGPdh/aR7T413ywfSp7Zf9A7pdTkeEeVe5YPJfnsr7+HNkm7p5oqVEhZqvYp7yLZ6W+vUCFNqSYLFVKUarVQYXCpdgsVhpWqMsuHMmT2t3bKu4g+/e3ch/YRd5/a+Rl7a8R85r+UQoXgUu3voU3C9lTVp02xhDylKq1QwbvU8goV/ErN+l4+Nz7v/UstVOgtVe+JfSq6n/yfSjrlXWw73vtbn5R8cU5U5RcqtJea5BPMVmj7JPVUChXuSp1OocJtqUXM8qH8O/tPrVDhWmq596F9LKZS6FfnTz5Lfb1cvjj4Vor7+W+M34/H4+HH4ef5fJ59UNf17tL9d6nO2kv3ZNZp0cVMe+meYIihfTDE0D4YYmgfDDG0D4YY2gdDDO2DIYb2wRBD+2CIoX0wxNA+GGJoHwwxtA+GGNoHQwztgyGG9sEQQ/tgiKF9MMQwnK3rGxw9xH6/Y3zDt8jrvRVj+Bh5vUcMMcQQQwwxxBBDDDHEEEMMMcQQQwwxxBBDDDHEEEMMMcQQQwwxxBBDDDHEEEMMMcQQQwwxxBBDDP9zw3nkFc/9v7qV2P/FMI82PMzjeI+83nvk9Q7RhgAAAAAAAJ78AvSZcuU8ZeIKAAAAAElFTkSuQmCC">Home</div>
-      <div class="browse hbr"><img src="data:image/png;base64,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">Browse</div>
-      <div class="radio hbr"><img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/rfid-signal-icon-18-256.png">Radio</div>
-    </div>
-    <div class="playlist-wrap">
-      <div class="playlist-title">YOUR LIBRARY</div>
-      <div class="playlists">
-        <p>Made For You</p>
-        <p>Recently Played</p>
-        <p>Liked Songs</p>
-        <p>Albums</p>
-        <p>Artists</p>
-        <p>Podcasts</p>
-        <p></p>
-        <p></p>
-      </div>
-      <div class="playlist-title">PLAYLISTS</div>
-      <div class="playlists">
-        <p>Discover Weekly</p>
-        <p>The Indie List</p>
-        <p>Frank Ocean</p>
-        <p>Benji B</p>
-        <p>2020</p>
-        <p>Foals</p>
-      </div>
-    </div>
-
-    <div class="new-playlist">
-      <img src="https://images.squarespace-cdn.com/content/v1/56e19ec5e3214084d69d4b7d/1473524254173-BGV5W2Z5FM46F67SYZHJ/ke17ZwdGBToddI8pDm48kODEHMGUBRgRRplOmqRomK1Zw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7Rb66VC8y5UmDKESC3gpGyXuuE80dFkeX9PanWgM3V4qRJePadRz66WmX0L5eMAEew/PlusIcon_Small_Gray.png?format=300w">New Playlist
-    </div> -->
-  </div>
-  <div class="side-bar">
-    <!-- <div class="friends">See what your friends are playing</div>
-    <div class="friend-button-container">
-      <button class="friend-button" type="button"><b>FIND FRIENDS</b></button>
-    </div> -->
-  </div>
 
   <div class="main">
     <div class="home">
@@ -60,16 +22,12 @@
     <div class="shortcuts">
       <h4>Shortcuts</h4>
       <div class="shortcuts-container">
-        <div class="img-container"><img class="album-img" src="https://images.unsplash.com/photo-1542539097-00f1e264494f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-          <h5>Discover Weekly</h5>
-        </div>
-        <div class="img-container"><img class="album-img" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
-        <div class="img-container"><img class="album-img" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
-        <div class="img-container"><img class="album-img" src="https://images.unsplash.com/photo-1495651779359-881fde1808a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
-        <div class="img-container"><img class="album-img" src="https://images.unsplash.com/photo-1474752651386-dc296d69dc90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
-        <div class="img-container"><img class="album-img" src="https://images.unsplash.com/photo-1584679109594-56fffe50d527?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></div>
       </div>
-
+      <app-news-songs></app-news-songs>
+      <app-news-songs></app-news-songs>
+      <app-news-songs></app-news-songs>
+      <app-news-songs></app-news-songs>
+      <app-news-songs></app-news-songs>
+      
     </div>
   </div>
-</body>

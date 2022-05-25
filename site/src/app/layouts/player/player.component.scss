@@ -1,27 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap");
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat", sans-serif;
-  display: grid;
-  font-size: 16px;
-  grid-template-areas:
-    "navigation header sidebar"
-    "navigation main sidebar"
-    "footer footer footer";
-  grid-template-columns: 15rem 1fr 15rem;
-  grid-template-rows: 3rem 100% 5.4rem;
-  max-width: 100%;
-  height: calc(100vh - 8.4rem);
-  box-sizing: border-box;
-}
 
-/*header*/
 
 header {
   text-align: center;
-  background-color: #151515;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -113,32 +95,6 @@ a:focus {
   position: relative;
   padding-bottom: 1px;
 }
-/*.username .tooltip {
-    position: absolute;
-    visibility: hidden;
-    padding: 5px 0;
-    text-align: center;
-    background-color: #555;
-    color: black;
-    width: 120px;
-    z-index: 500;
-    border-radius: 6px;
-    top: 150%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: visibility 0.5s;
-}
-.username .tooltip::after {
-    content: " ";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #555 transparent;
-}*/
 .username:hover {
   border-bottom: 1px solid white;
   visibility: visible;
@@ -162,13 +118,11 @@ a:focus {
   flex-direction: column;
   align-items: stretch;
   grid-area: navigation;
-  background-color: #111;
 
   color: #999;
   cursor: default;
 }
 .dots {
-  background-color: #111;
   letter-spacing: 0.0125rem;
   font-size: 2.4rem;
   display: flex;
@@ -177,7 +131,6 @@ a:focus {
   color: white;
 }
 .home-browse-radio {
-  background-color: #111;
   color: #999;
   display: flex;
   flex-direction: column;
@@ -197,7 +150,6 @@ a:focus {
   margin: 0px 14px 5px 10px;
 }
 .playlist-wrap {
-  background-color: #111;
   flex-grow: 1;
   flex-shrink: 2;
   padding-left: 22px;
@@ -213,7 +165,6 @@ a:focus {
   color: white;
 }
 .new-playlist {
-  background-color: #111;
   border-top: 1px solid #222;
   color: #999;
   padding: 0px 0px 0px 18px;
@@ -249,7 +200,6 @@ a:focus {
 /*side-bar*/
 .side-bar {
   grid-area: sidebar;
-  background-color: #111;
   color: white;
   display: flex;
   justify-content: center;
@@ -288,12 +238,10 @@ a:focus {
 
 /*Main*/
 .main {
-  background-color: #151515;
   grid-area: main;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  overflow-y: scroll;
+  overflow: hidden;;
   flex-grow: 1;
   flex-shrink: 2;
 }
@@ -305,7 +253,6 @@ a:focus {
 .shortcuts {
   margin: 1rem;
   color: white;
-  height: 500px;
 }
 .shortcuts-container {
   display: grid;
