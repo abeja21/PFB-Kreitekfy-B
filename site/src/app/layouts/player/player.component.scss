@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap");
-
-
-
 header {
   text-align: center;
   color: white;
@@ -20,13 +16,8 @@ header {
   align-items: center;
   margin-left: 0.75rem;
 }
-
 .nav-search:focus {
   outline: 0;
-}
-
-.nav-left a {
-  cursor: default !important;
 }
 .fa {
   color: white;
@@ -35,11 +26,6 @@ header {
 }
 a:focus {
   outline: 0;
-}
-
-.r-arrow {
-  padding-right: 1.6rem;
-  margin-left: 0.5rem;
 }
 .nav-search {
   height: 1.55rem;
@@ -57,30 +43,6 @@ a:focus {
   opacity: 1;
   font-size: 0.8rem;
   letter-spacing: 0.0125em;
-}
-.nav-button {
-  height: 1.5rem;
-  width: 6.875rem;
-  border-radius: 30px;
-  background: transparent;
-  border: 0.0525rem solid white;
-  color: white;
-  letter-spacing: 0.0625em;
-  font-weight: 600;
-  font-size: 0.7rem;
-  margin-right: 20px;
-  padding-bottom: 1px;
-}
-.nav-button:hover {
-  transform: scale(1.08, 1.08);
-  border-radius: 0.225rem solid white;
-}
-.nav-button:focus {
-  outline: 0;
-}
-
-.underline {
-  display: inline;
 }
 .nav-image {
   width: 24px;
@@ -106,139 +68,6 @@ a:focus {
   outline: 0;
 }
 
-.fa2 {
-  color: white;
-  text-decoration: none;
-  cursor: default !important;
-  margin-right: 8px;
-}
-
-/*navigation*/
-
-.navigation {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  grid-area: navigation;
-
-  color: #999;
-  cursor: default;
-}
-.dots {
-  letter-spacing: 0.0125rem;
-  font-size: 2.4rem;
-  display: flex;
-  align-self: flex-start;
-  margin: 0 0 1rem 1.4rem;
-  color: white;
-}
-.home-browse-radio {
-  color: #999;
-  display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-}
-.hbr {
-  padding: 5px 8px 5px 12px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  font-size: 0.85rem;
-}
-.hbr img {
-  width: 25px;
-  height: 25px;
-  margin: 0px 14px 5px 10px;
-}
-.playlist-wrap {
-  flex-grow: 1;
-  flex-shrink: 2;
-  padding-left: 22px;
-  overflow-y: scroll;
-  height: auto;
-  margin-top: 16px;
-}
-.playlists {
-  font-weight: 600;
-  font-size: 0.852rem;
-}
-.playlists p:hover {
-  color: white;
-}
-.new-playlist {
-  border-top: 1px solid #222;
-  color: #999;
-  padding: 0px 0px 0px 18px;
-  height: 4rem;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-.new-playlist:hover {
-  color: white;
-}
-.new-playlist img {
-  width: 35px;
-  padding-left: 5px;
-  height: 35px;
-}
-.playlist-title {
-  color: #888;
-  padding-top: 14px;
-  font-size: 0.7rem;
-  font-weight: 400;
-}
-.hbr,
-.home-browse-radio,
-.new-playlist {
-  flex-shrink: 0;
-}
-.hbr:hover {
-  color: white;
-}
-/*side-bar*/
-.side-bar {
-  grid-area: sidebar;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  font-weight: 900;
-  border-left: 1px solid #222;
-  flex-shrink: 2;
-}
-.friends {
-  padding: 20px;
-  color: white;
-}
-
-.friend-button {
-  height: 1.985rem;
-  width: 9.5rem;
-  border-radius: 25px;
-  background: transparent;
-  border: 0.0525rem solid white;
-  color: white;
-  letter-spacing: 0.0625em;
-  font-weight: 900;
-  font-size: 0.7rem;
-  padding-bottom: 1px;
-  margin-top: 20px;
-}
-.friend-button:hover {
-  transform: scale(1.08, 1.08);
-  border-radius: 0.925rem solid white;
-}
-.friend-button:focus {
-  outline: 0;
-}
-
-/*Main*/
 .main {
   grid-area: main;
   display: flex;
@@ -255,23 +84,4 @@ a:focus {
 .shortcuts {
   margin: 1rem;
   color: white;
-}
-.shortcuts-container {
-  display: grid;
-  grid-gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  border-top: 1px solid #444;
-}
-.img-container {
-  width: 100%;
-  height: 100%;
-  padding-top: 11px;
-}
-.img-container h5 {
-  margin-top: 6px;
-  font-size: 0.755rem;
-}
-.album-img {
-  max-width: 100%;
-  max-height: auto;
 }

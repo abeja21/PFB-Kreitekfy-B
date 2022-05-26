@@ -1,28 +1,4 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    padding: 100px;
-    height: 100vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: #121212;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .card {
+.card {
     display: inline-block;
     width: 270px;
     border-radius: 4px;
@@ -32,6 +8,7 @@
     transition: background-color 0.4s;
     cursor: pointer;
     margin-bottom: 2rem;
+    margin: auto 2em;
   }
   .card:hover {
     background-color: #282828;
@@ -40,14 +17,12 @@
   .cover {
     position: relative;
     margin-bottom: 18px;
-  }
-  .cover img {
-    display: block;
-    width: 100%;
-    box-shadow: 0 8px 20px -4px hsl(0, 0%, 5%);
-  }
-  .cover.artist img {
-    border-radius: 50%;
+  
+    img {
+      display: block;
+      width: 100%;
+      box-shadow: 0 8px 20px -4px hsl(0, 0%, 5%);
+    }
   }
   
   .play-icon {
@@ -95,13 +70,17 @@
     font-size: 14px;
     color: hsl(0, 0%, 70%);
   }
-
-  .border-bottom{
+  
+  .border-bottom {
     display: grid;
     grid-gap: 14px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     border-top: 1px solid #444;
     margin-bottom: 2em;
     margin-top: 0.5em;
+  }
+  
+  h4{
+    margin-top: 2em;
   }
   
