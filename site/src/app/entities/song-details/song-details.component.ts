@@ -15,7 +15,7 @@ export class SongDetailsComponent implements OnInit {
   duration!: string
   upload_date!: Date 
   style!: string
-  Album!: string[]
+  Album!: string
   img!: string
   Rating!: number[]
 
@@ -26,13 +26,14 @@ export class SongDetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.username = localStorage.getItem('user')!
-
+    this.getSongDetails()
   }
 
   public getSongDetails(){
     const entryParam = this.router.snapshot.paramMap.get("id")!
     this.songdetailsService.getSongDetails(entryParam).subscribe({
       next:(data)=>{
+        console.log(data)
         this.title = data.title
         this.singer = data.singer
         this.duration = data.duration
@@ -41,7 +42,8 @@ export class SongDetailsComponent implements OnInit {
         this.Album = data.Album
         this.img = data.img
         this.Rating = data.Rating
-      }
+      },
+      error: (err) => {console.log(err);}
     })
   }
 

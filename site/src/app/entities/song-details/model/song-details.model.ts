@@ -5,7 +5,7 @@ export class SongDetails{
     upload_date: Date;
     plays: number;
     style: string;
-    Album: string[];
+    Album: string;
     img: string;
     Rating: number[];
 
@@ -17,7 +17,7 @@ export class SongDetails{
     upload_date: Date, 
     plays: number, 
     style: string,
-    Album: string[],
+    Album: string,
     img: string,
     Rating: number[]
 ) {

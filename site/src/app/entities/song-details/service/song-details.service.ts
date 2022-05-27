@@ -15,6 +15,7 @@ export class SongDetailsService {
 
     let baseUrl = "http://localhost:3000/song/" + id
     
+    console.log(baseUrl)
     return this.http.get<SongDetails>(baseUrl)
   }
 }
