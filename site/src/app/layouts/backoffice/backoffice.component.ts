@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BackofficeService } from './service/backoffice.service';
 
 @Component({
   selector: 'app-backoffice',
@@ -7,57 +8,43 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./backoffice.component.scss']
 })
 export class BackofficeComponent implements OnInit {
-  categoryId?: number;
-  title: string = "";
 
-  page: number = 0;
-  size: number = 2;
+  size: number = 25;
   sort: string = "name,asc";
 
-  first: boolean = false;
-  last: boolean = false;
-  totalPages: number = 0;
-  totalElements: number = 0;
 
-  nameFilter?: string;
-  priceFilter?: number;
+  styleFilter?: string;
+  singerFilter?: number;
+  albumFilter?: string;
+  titleFilter?:string;
 
   itemIdToDelete?: number;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private backOfficeService: BackofficeService) { }
 
   ngOnInit(): void {
-    if (this.route.snapshot.paramMap.get("categoryId")) {
-        this.categoryId = +this.route.snapshot.paramMap.get("categoryId")!;
-        this.title = "Artículos de la categoría " + this.categoryId;
-      }
-    else {
-        this.title = "Lista de artículos";
-    }
+
+    this.buildFilters()
   }
 
-
-
-
-
-  public prepareItemToDelete(itemId: number): void {
-    this.itemIdToDelete = itemId;
-  }
-
-  private buildFilters():string|undefined {
+  private buildFilters() {
     const filters: string[] = [];
 
-    if (this.categoryId) {
-      filters.push("category.id:EQUAL:" + this.categoryId);
+
+    if(this.styleFilter) {
+      filters.push("style:MATCH:" + this.styleFilter);
+    }
+    if(this.singerFilter) {
+      filters.push("singer:MATCH:" + this.singerFilter);
+    }
+    if(this.albumFilter) {
+      filters.push("album:MATCH:" + this.albumFilter);
+    }
+    if(this.titleFilter) {
+      filters.push("title:MATCH:" + this.titleFilter);
     }
 
-    if(this.nameFilter) {
-      filters.push("name:MATCH:" + this.nameFilter);
-    }
-
-    if (this.priceFilter) {
-      filters.push("price:LESS_THAN_EQUAL:" + this.priceFilter);
-    }
 
     if (filters.length >0) {
 
@@ -66,7 +53,9 @@ export class BackofficeComponent implements OnInit {
         globalFilters = globalFilters + filter + ",";
       }
       globalFilters = globalFilters.substring(0, globalFilters.length-1);
+      console.log(globalFilters)
       return globalFilters;
+     
 
     } else {
       return undefined;
@@ -74,8 +63,15 @@ export class BackofficeComponent implements OnInit {
   }
 
 
-  private handleError(error: any) {
-    // lo que queramos
+  getSongs(){
+
+    const filters: string | undefined = this.buildFilters();
+
+    this.backOfficeService.getSongs(filters).subscribe({
+      next: (data) => {
+
+      }
+    })
   }
 
 }
