@@ -1,0 +1,18 @@
+  .music-head {
+    flex: 0 0 280px;
+    display: flex;
+    padding: 40px;
+    background-color: #121212;
+  }
+  img {
+    max-width: 280px;
+  }
+  .catty-music {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    font-weight: 300;
+    background-color : #fff;
+  }
+  
