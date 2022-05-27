@@ -7,6 +7,7 @@ export class SongDetails{
     style: string;
     Album: string[];
     img: string;
+    Rating: number[];
 
 
   constructor(
@@ -17,7 +18,8 @@ export class SongDetails{
     plays: number, 
     style: string,
     Album: string[],
-    img: string
+    img: string,
+    Rating: number[]
 ) {
     this.name = name
     this.singer = singer
@@ -27,6 +29,7 @@ export class SongDetails{
     this.style = style
     this.Album = Album
     this.img = img
+    this.Rating = Rating
   }
 
 }
