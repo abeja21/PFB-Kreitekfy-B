@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-const baseUrl = "http://localhost:3000/"
+import { SongDetails } from '../model/song-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +9,12 @@ const baseUrl = "http://localhost:3000/"
 
 export class SongDetailsService {
 
-  constructor(private http: HttpClient) { }
+  constructor (private http:HttpClient){}
 
-  public getName(){
+  public getSongDetails(id:string):Observable<SongDetails>{
+
+    let baseUrl = "http://localhost:3000/song/" + id
     
-  }
-  public getDuration(){
-
-  }
-  public getUploadDate(){
-
-  }
-  public getSinger(){
-
-  }
-  public getStyle(){
-
-  }
-  public getAlbum(){
-
+    return this.http.get<SongDetails>(baseUrl)
   }
 }

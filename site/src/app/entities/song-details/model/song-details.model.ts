@@ -1,5 +1,5 @@
 export class SongDetails{
-    name: string;
+    title: string;
     singer: string;
     duration: string;
     upload_date: Date;
@@ -11,7 +11,7 @@ export class SongDetails{
 
 
   constructor(
-    name: string, 
+    title: string, 
     singer: string,
     duration: string, 
     upload_date: Date, 
@@ -21,7 +21,7 @@ export class SongDetails{
     img: string,
     Rating: number[]
 ) {
-    this.name = name
+    this.title = title
     this.singer = singer
     this.duration = duration
     this.upload_date = upload_date

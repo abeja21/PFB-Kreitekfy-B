@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SongDetailsService } from './service/song-details.service';
 
 @Component({
@@ -9,16 +9,40 @@ import { SongDetailsService } from './service/song-details.service';
 })
 export class SongDetailsComponent implements OnInit {
 
-  name!: string
+  username!: string
+  title!: string
+  singer!: string
+  duration!: string
+  upload_date!: Date 
+  style!: string
+  Album!: string[]
+  img!: string
+  Rating!: number[]
 
   constructor(private songdetailsService: SongDetailsService,
-  private router: Router) { }
+  private route: Router, private router:ActivatedRoute) { }
+
 
   ngOnInit(): void {
-    this.getName()
 
-    this.name = localStorage.getItem('user')!
+    this.username = localStorage.getItem('user')!
 
+  }
+
+  public getSongDetails(){
+    const entryParam = this.router.snapshot.paramMap.get("id")!
+    this.songdetailsService.getSongDetails(entryParam).subscribe({
+      next:(data)=>{
+        this.title = data.title
+        this.singer = data.singer
+        this.duration = data.duration
+        this.upload_date = data.upload_date
+        this.style = data.style
+        this.Album = data.Album
+        this.img = data.img
+        this.Rating = data.Rating
+      }
+    })
   }
 
 }
