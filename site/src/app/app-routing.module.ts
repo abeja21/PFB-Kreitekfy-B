@@ -7,7 +7,7 @@ import { PlayerComponent } from './layouts/player/player.component';
 
 const routes: Routes = [
   {path: '', component: AuthenticationComponent},
-  {path: 'player', component: PlayerComponent},
+  {path: 'player/:name', component: PlayerComponent},
   {path: 'admin', component: BackofficeComponent},
   {path: 'song/:id', component: SongDetailsComponent}
 ];
