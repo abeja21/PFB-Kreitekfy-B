@@ -25,7 +25,7 @@ public class Song {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+1")
-    private Date dateLaunch;
+    private Date upload_date;
 
     @ManyToOne()
     @JoinColumn(name = "album_id", nullable = false)
