@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { SongDetailsService } from './service/song-details.service';
 
 @Component({
   selector: 'app-song-details',
@@ -10,12 +11,14 @@ export class SongDetailsComponent implements OnInit {
 
   name!: string
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private songdetailsService: SongDetailsService,
+  private router: Router) { }
 
   ngOnInit(): void {
-    const entryParam: string = this.route.snapshot.paramMap.get("id")!
+    this.getName()
 
-    this.name = entryParam
+    this.name = localStorage.getItem('user')!
+
   }
 
 }
