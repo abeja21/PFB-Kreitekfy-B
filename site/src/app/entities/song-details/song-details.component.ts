@@ -13,9 +13,9 @@ export class SongDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const entryParam: string = this.route.snapshot.paramMap.get("id")!
+    
+    this.name = localStorage.getItem('user')!
 
-    this.name = entryParam
   }
 
 }
