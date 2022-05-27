@@ -3,11 +3,12 @@
     <input class="nav-search" type="text" placeholder="Buscar" />
   </div>
   <div class="nav-right">
+    <a class="username">{{name}} </a>
     <img
       class="nav-image"
       src="https://icon-library.com/images/my-profile-icon-png/my-profile-icon-png-22.jpg"
     />
-    <a class="username" href="#">{{name}} </a>
+    <a class="username" (click)="logOut()">Cerrar Sesion </a>
   </div>
 </header>
 
