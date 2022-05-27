@@ -30,12 +30,13 @@ export class AuthenticationComponent implements OnInit {
     
   }
 
-  authenticationUser(name: string){
+  authenticationUser(admin: boolean, name: string){
 
-      if(name === "Admin"){
+      if(admin){
         this.router.navigate(["admin"])
       }else{
         this.router.navigate(["player/", name])
+        localStorage.setItem('user', name)
       }
       
     }
