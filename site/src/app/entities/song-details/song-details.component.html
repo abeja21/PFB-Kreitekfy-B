@@ -7,18 +7,17 @@
         class="nav-image"
         src="https://icon-library.com/images/my-profile-icon-png/my-profile-icon-png-22.jpg"
       />
-      <a class="username" href="#">{{name}} </a>
+      <a class="username" href="#">{{username}} </a>
     </div>
   </header>
 <div class="container">
-    <img src="https://m.media-amazon.com/images/I/61SdA-cS8ML._UXNaN_FMjpg_QL85_.jpg" />
+    <img [src]="img" />
     <section class="card">
         <div>
-            <p>{{name}}</p>
+            <p>{{title}}</p>
             <p>Album: {{Album}}</p>
-            <p>Fecha de salida: {{upload_date}}</p>
             <p>Artista/s: {{singer}}</p>
-            <p>Estilo: {{Style}}</p>
+            <p>Estilo: {{style}}</p>
             <p>Duración(segundos): {{duration}}</p>
             <fieldset class="rating">
                 <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
