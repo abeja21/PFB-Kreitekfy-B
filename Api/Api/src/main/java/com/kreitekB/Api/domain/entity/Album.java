@@ -7,12 +7,15 @@ import javax.validation.constraints.Size;
 @Table(name = "albums")
 public class Album {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "albumSequence")
-    private long Id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "albumSequence")
+    private Long id;
 
-    @Column(length = 100,nullable = false)
-    @Size(min = 1,max = 1000)
+    @Column(length = 100, nullable = false)
+    @Size(min = 3, max = 100)
     private String name;
+
+    @Column(length = 2000)
+    private String description;
 
     @Lob
     private byte[] image;
@@ -20,12 +23,12 @@ public class Album {
     public Album() {
     }
 
-    public long getId() {
-        return Id;
+    public Long getId() {
+        return id;
     }
 
-    public void setId(long id) {
-        Id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -34,6 +37,14 @@ public class Album {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public byte[] getImage() {
