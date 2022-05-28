@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public class UserPersistenceImpl implements UserPersistence {
 
+
     private final UserRepository userRepository;
 
     @Autowired
@@ -19,7 +20,7 @@ public class UserPersistenceImpl implements UserPersistence {
     }
 
     @Override
-    public List<User> getAllUser() {
+    public List<User> getAllUsers() {
         return this.userRepository.findAll();
     }
 
@@ -35,6 +36,6 @@ public class UserPersistenceImpl implements UserPersistence {
 
     @Override
     public void deleteUser(Long userId) {
-    this.userRepository.deleteById(userId);
+        this.userRepository.deleteById(userId);
     }
 }
