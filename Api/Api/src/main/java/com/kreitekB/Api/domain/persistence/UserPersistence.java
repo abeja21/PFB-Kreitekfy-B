@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface UserPersistence {
 
-    List<User> getAllUser();
+    List<User> getAllUsers();
 
     Optional<User> getUserById(Long userId);
 

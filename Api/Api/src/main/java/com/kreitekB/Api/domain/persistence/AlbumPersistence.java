@@ -7,12 +7,12 @@ import java.util.Optional;
 
 public interface AlbumPersistence {
 
+
     List<Album> getAllAlbums();
 
-    Optional<Album>getAlbumById(long albumId);
+    Optional<Album> getAlbumById(Long albumId);
 
     Album saveAlbum(Album album);
 
-    void deleteAlbum(long albumId);
-
+    void deleteAlbum(Long albumId);
 }

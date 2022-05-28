@@ -24,4 +24,7 @@ public interface SongPersistence {
     List<Song> getSongsByAlbum(Long albumId);
 
     Page<Song> findAll(Pageable pageable, String filter);
+
+
+
 }
