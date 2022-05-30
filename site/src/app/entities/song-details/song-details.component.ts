@@ -46,5 +46,9 @@ export class SongDetailsComponent implements OnInit {
       error: (err) => {console.log(err);}
     })
   }
+  
+  public getRating(){
+    
+  }
 
 }

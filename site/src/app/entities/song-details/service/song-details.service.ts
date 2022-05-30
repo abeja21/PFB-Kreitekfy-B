@@ -15,7 +15,13 @@ export class SongDetailsService {
 
     let baseUrl = "http://localhost:3000/song/" + id
     
-    console.log(baseUrl)
     return this.http.get<SongDetails>(baseUrl)
+  }
+
+  public getRating(id:string, rating:number):Observable<any>{
+
+    let baseUrl = "http://localhost:8080/PFB/song"
+
+    return this.http.put(baseUrl + "/" + id, {rating});
   }
 }
