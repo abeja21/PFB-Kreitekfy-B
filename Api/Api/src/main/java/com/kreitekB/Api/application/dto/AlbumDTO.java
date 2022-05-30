@@ -9,6 +9,8 @@ public class AlbumDTO implements Serializable {
 
     private String description;
 
+    private byte[]image;
+
     public AlbumDTO() {
     }
 
@@ -34,5 +36,13 @@ public class AlbumDTO implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
