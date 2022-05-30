@@ -37,13 +37,13 @@ export class BackofficeComponent implements OnInit {
 
 
     if(this.styleFilter) {
-      filters.push("style.name:MATCH:" + this.styleFilter);
+      filters.push("name:MATCH:" + this.styleFilter);
     }
     if(this.singerFilter) {
-      filters.push("artist.name:MATCH:" + this.singerFilter);
+      filters.push("name:MATCH:" + this.singerFilter);
     }
     if(this.albumFilter) {
-      filters.push("album.name:MATCH:" + this.albumFilter);
+      filters.push("name:MATCH:" + this.albumFilter);
     }
     if(this.titleFilter) {
       filters.push("name:MATCH:" + this.titleFilter);
