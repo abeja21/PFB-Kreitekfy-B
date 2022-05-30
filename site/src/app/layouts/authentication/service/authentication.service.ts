@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../model/User.model';
 
-const baseUrl = "http://localhost:8080/PFB/"
 
+const baseUrl = "http://localhost:8080/PFB/"
 @Injectable({
   providedIn: 'root'
 })
