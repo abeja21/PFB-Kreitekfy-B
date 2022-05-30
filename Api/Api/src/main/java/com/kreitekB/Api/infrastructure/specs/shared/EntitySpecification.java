@@ -67,4 +67,5 @@ public abstract class EntitySpecification<T> {
 
         return builder.and(predicates.toArray(new Predicate[0]));
     }
+
 }

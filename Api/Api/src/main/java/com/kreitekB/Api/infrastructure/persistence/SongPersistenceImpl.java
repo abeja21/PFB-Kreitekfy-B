@@ -28,7 +28,7 @@ public class SongPersistenceImpl implements SongPersistence {
 
     @Override
     public Optional<Song> getSongById(Long songId) {
-        return this.songRepository.findById((songId));
+        return this.songRepository.findById(songId);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class SongPersistenceImpl implements SongPersistence {
 
     @Override
     public void deleteSong(Long songId) {
-    this.songRepository.deleteById(songId);
+        this.songRepository.deleteById(songId);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class SongPersistenceImpl implements SongPersistence {
 
     @Override
     public List<Song> getSongsByAlbum(Long albumId) {
-        return songRepository.findByAlbum(albumId);
+        return this.songRepository.findByAlbum(albumId);
     }
 
     @Override

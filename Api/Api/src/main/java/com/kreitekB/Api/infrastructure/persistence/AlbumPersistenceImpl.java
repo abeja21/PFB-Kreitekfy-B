@@ -11,19 +11,21 @@ import java.util.Optional;
 @Repository
 public class AlbumPersistenceImpl implements AlbumPersistence {
 
+
     private final AlbumRepository albumRepository;
 
     @Autowired
     public AlbumPersistenceImpl(AlbumRepository albumRepository) {
         this.albumRepository = albumRepository;
     }
+
     @Override
     public List<Album> getAllAlbums() {
         return this.albumRepository.findAll();
     }
 
     @Override
-    public Optional<Album> getAlbumById(long albumId) {
+    public Optional<Album> getAlbumById(Long albumId) {
         return this.albumRepository.findById(albumId);
     }
 
@@ -33,7 +35,8 @@ public class AlbumPersistenceImpl implements AlbumPersistence {
     }
 
     @Override
-    public void deleteAlbum(long albumId) {
-    this.albumRepository.deleteById((albumId));
+    public void deleteAlbum(Long albumId) {
+        this.albumRepository.deleteById(albumId);
+
     }
 }
