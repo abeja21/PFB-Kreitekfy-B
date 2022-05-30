@@ -1,6 +1,8 @@
 package com.kreitekB.Api.application.dto;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class SongDTO implements Serializable {
@@ -12,7 +14,7 @@ public class SongDTO implements Serializable {
 
     private Double duration;
 
-    private Date dateLaunch;
+    private Date dateLaunch=new Date();
 
     private Long albumId;
 
