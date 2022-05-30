@@ -1,30 +1,41 @@
 export class Song{
+
+    id: number
     name: string;
     duration: string;
-    upload_date: Date;
-    style: string;
+    dateLaunch: Date;
+    styleName: string;
     plays: number;
-    singer: string;
-    Album: string[];
+    artistName: string;
+    albumName: string[];
+    image: string
+
 
 
   constructor(
+    id: number, 
     name: string, 
     duration: string, 
-    upload_date: Date, 
-    style: string, 
+    dateLaunch: Date, 
+    styleName: string, 
     plays: number, 
-    singer: string, 
-    Album: string[]
+    artistName: string, 
+    albumName: string[], 
+    image: string
 ) {
+    this.id = id
     this.name = name
     this.duration = duration
-    this.upload_date = upload_date
-    this.style = style
+    this.dateLaunch = dateLaunch
+    this.styleName = styleName
     this.plays = plays
-    this.singer = singer
-    this.Album = Album
+    this.artistName = artistName
+    this.albumName = albumName
+    this.image = image
   }
+
+
+
 
 
 }
