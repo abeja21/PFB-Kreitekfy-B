@@ -12,12 +12,12 @@ export class BackofficeService {
   constructor(private http: HttpClient) { }
 
 
-  public getSongs(filters?: string): Observable<Song[]>{
-    let baseUrl = "http://localhost:8080/songs";
-
+  public getSongs(size:number, filters?: string): Observable<Song[]>{
+    let baseUrl = "http://localhost:8080/PFB/songs?size=" + size;
     if(filters) {
-      baseUrl += "&filters=" + filters
+      baseUrl  =  baseUrl + "&filter=" + filters
     }
+    console.log(baseUrl)
     return this.http.get<Song[]>(baseUrl);
   }
 }

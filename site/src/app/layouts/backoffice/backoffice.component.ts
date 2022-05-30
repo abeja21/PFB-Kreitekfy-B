@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Song } from './model/song.model';
 import { BackofficeService } from './service/backoffice.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class BackofficeComponent implements OnInit {
   size: number = 25;
   sort: string = "name,asc";
 
-
+  songList: Song[] = []
   styleFilter?: string;
   singerFilter?: number;
   albumFilter?: string;
@@ -24,25 +25,28 @@ export class BackofficeComponent implements OnInit {
               private backOfficeService: BackofficeService) { }
 
   ngOnInit(): void {
-
-    this.buildFilters()
+    this.getSongs()
   }
 
-  private buildFilters() {
+  public searchByFilters():void {
+    this.getSongs();
+  }
+
+  private buildFilters(): string | undefined {
     const filters: string[] = [];
 
 
     if(this.styleFilter) {
-      filters.push("style:MATCH:" + this.styleFilter);
+      filters.push("style.name:MATCH:" + this.styleFilter);
     }
     if(this.singerFilter) {
-      filters.push("singer:MATCH:" + this.singerFilter);
+      filters.push("artist.name:MATCH:" + this.singerFilter);
     }
     if(this.albumFilter) {
-      filters.push("album:MATCH:" + this.albumFilter);
+      filters.push("album.name:MATCH:" + this.albumFilter);
     }
     if(this.titleFilter) {
-      filters.push("title:MATCH:" + this.titleFilter);
+      filters.push("name:MATCH:" + this.titleFilter);
     }
 
 
@@ -55,8 +59,6 @@ export class BackofficeComponent implements OnInit {
       globalFilters = globalFilters.substring(0, globalFilters.length-1);
       console.log(globalFilters)
       return globalFilters;
-     
-
     } else {
       return undefined;
     }
@@ -67,9 +69,10 @@ export class BackofficeComponent implements OnInit {
 
     const filters: string | undefined = this.buildFilters();
 
-    this.backOfficeService.getSongs(filters).subscribe({
-      next: (data) => {
-
+    this.backOfficeService.getSongs(this.size, filters).subscribe({
+      next: (data: any) => {
+        this.songList = data.content
+        console.log(this.songList)
       }
     })
   }

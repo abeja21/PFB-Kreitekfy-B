@@ -23,7 +23,7 @@
             </div>
 
             <div class="col-2 col-md-2">
-                <button id="btnSearch" class="btn btn-secondary" >Buscar</button>
+                <button id="btnSearch" class="btn btn-secondary" (click)="searchByFilters()">Buscar</button>
             </div>
         </div>
     </form>
@@ -41,44 +41,15 @@
             <th class="song-item-heading">Plays</th>
         </tr>
     </thead>
-    <tr class="album-view-song-item">
-        <td class="song-item">1</td>
-        <td class="song-item-title">Blue</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
+    <tr class="album-view-song-item" *ngFor="let song of songList">
+        <td class="song-item"><img class="imgSong" [src]="'data:image/webp;base64,' + song.image"></td>
+        <td class="song-item-title">{{ song.name }} </td>
+        <td class="song-item">{{ song.albumName }}</td>
+        <td class="song-item">{{ song.artistName }}</td>
+        <td class="song-item">{{ song.styleName }}</td>
+        <td class="song-item">{{ song.dateLaunch | date }}</td>
+        <td class="song-item">{{ song.duration }}</td>
         <td class="song-item">100</td>
     </tr>
-    <tr class="album-view-song-item">
-        <td class="song-item">1</td>
-        <td class="song-item-title">Blue</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">100</td>
-    </tr>
-    <tr class="album-view-song-item">
-        <td class="song-item">1</td>
-        <td class="song-item-title">Blue</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">100</td>
-    </tr>
-    <tr class="album-view-song-item">
-        <td class="song-item">1</td>
-        <td class="song-item-title">Blue</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">X:XX</td>
-        <td class="song-item">100</td>
-    </tr>
+
 </table>
