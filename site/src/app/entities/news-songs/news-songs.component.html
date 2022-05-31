@@ -1,41 +1,15 @@
 <h4>Novedades</h4>
 <div class="border-bottom"></div>
 
-<div class="card">
+<div class="card" *ngFor="let song of songList">
     <div class="cover">
-      <a [routerLink]="['/song/','1']"><img src="https://m.media-amazon.com/images/I/61SdA-cS8ML._UXNaN_FMjpg_QL85_.jpg" alt="cover" /></a>
+      <a [routerLink]="['/song/',song.id]"><img [src]="'data:image/jpeg;base64,'+song.image" alt="cover" /></a>
       <div class="play-icon">
         <i class="fa fa-play"></i>
       </div>
     </div>
     <div class="card-content">
-      <h4>Tigini (Remix)</h4>
-    </div>
-  </div>
-
-
-<div class="card">
-    <div class="cover artist">
-      <img src="https://images.genius.com/0c93db95b0db6cc1a030501845da4291.1000x1000x1.jpg" alt="cover" />
-      <div class="play-icon">
-        <i class="fa fa-play"></i>
-      </div>
-    </div>
-    <div class="card-content">
-      <h4>Neverita</h4>
-    </div>
-  </div>
-
-
-<div class="card">
-    <div class="cover">
-      <img src="https://images.genius.com/953fc41f06b3196ebb394444b4972890.1000x1000x1.jpg" alt="cover" />
-      <div class="play-icon">
-        <i class="fa fa-play"></i>
-      </div>
-    </div>
-    <div class="card-content">
-      <h4>Yatekomo</h4>
+      <h4>{{song.name}}</h4>
     </div>
   </div>
 
