@@ -40,7 +40,7 @@ export class BackofficeComponent implements OnInit {
       filters.push("name:MATCH:" + this.styleFilter);
     }
     if(this.singerFilter) {
-      filters.push("name:MATCH:" + this.singerFilter);
+      filters.push("artistName:" + this.singerFilter);
     }
     if(this.albumFilter) {
       filters.push("name:MATCH:" + this.albumFilter);
@@ -71,10 +71,16 @@ export class BackofficeComponent implements OnInit {
 
     this.backOfficeService.getSongs(this.size, filters).subscribe({
       next: (data: any) => {
+
         this.songList = data.content
+
+        
         console.log(this.songList)
+        
       }
     })
+
+
   }
 
 }
