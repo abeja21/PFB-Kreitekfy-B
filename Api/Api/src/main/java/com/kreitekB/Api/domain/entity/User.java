@@ -2,6 +2,7 @@ package com.kreitekB.Api.domain.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -17,6 +18,9 @@ public class User {
 
     @Column(nullable = false)
     private Boolean Admin;
+
+    @OneToMany(mappedBy = "user")
+    Set<Rating> ratings;
 
     public User() {
     }
@@ -44,5 +48,12 @@ public class User {
         Admin = admin;
     }
 
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
+    }
 }
 
