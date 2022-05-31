@@ -17,13 +17,14 @@ public class ArtistPersistenceImpl implements ArtistPersistence {
     public ArtistPersistenceImpl(ArtistRepository artistRepository) {
         this.artistRepository = artistRepository;
     }
+
     @Override
-    public List<Artist> getAllArtist() {
+    public List<Artist> getAllArtists() {
         return this.artistRepository.findAll();
     }
 
     @Override
-    public Optional<Artist> getArtistById(long artistId) {
+    public Optional<Artist> getArtistById(Long artistId) {
         return this.artistRepository.findById(artistId);
     }
 

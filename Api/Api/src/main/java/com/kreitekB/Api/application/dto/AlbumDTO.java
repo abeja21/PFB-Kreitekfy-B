@@ -1,26 +1,17 @@
-package com.kreitekB.Api.domain.entity;
+package com.kreitekB.Api.application.dto;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "albums")
-public class Album {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "albumSequence")
+public class AlbumDTO implements Serializable {
     private Long id;
 
-    @Column(length = 100, nullable = false)
-    @Size(min = 3, max = 100)
     private String name;
 
-    @Column(length = 2000)
     private String description;
 
-    @Lob
-    private byte[] image;
+    private byte[]image;
 
-    public Album() {
+    public AlbumDTO() {
     }
 
     public Long getId() {

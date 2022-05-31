@@ -11,6 +11,6 @@ public class ItemSpecification extends EntitySpecification<Song>implements Speci
 
     public ItemSpecification(List<SearchCriteria> criteria) {
         this.criteria = criteria;
-
     }
+
 }

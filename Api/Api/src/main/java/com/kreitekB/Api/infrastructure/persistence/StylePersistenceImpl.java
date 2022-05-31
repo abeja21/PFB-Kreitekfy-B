@@ -34,6 +34,6 @@ public class StylePersistenceImpl implements StylePersistence {
 
     @Override
     public void deleteStyle(Long styleId) {
-    this.styleRepository.deleteById(styleId);
+        this.styleRepository.deleteById(styleId);
     }
 }

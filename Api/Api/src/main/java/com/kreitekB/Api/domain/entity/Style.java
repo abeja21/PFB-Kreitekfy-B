@@ -7,12 +7,13 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "styles")
 public class Style {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "styleSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "styleSequence")
     private Long id;
 
     @Column(length = 100, nullable = false)
-    @Size(min = 3,max = 100)
+    @Size(min = 3, max = 100)
     private String name;
 
     public Style() {
