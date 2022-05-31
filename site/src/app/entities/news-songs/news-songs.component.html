@@ -3,11 +3,7 @@
 
 <div class="card" *ngFor="let song of songList">
     <div class="cover">
-<<<<<<< HEAD
-      <a [routerLink]="['/songs/','2']"><img src="https://m.media-amazon.com/images/I/61SdA-cS8ML._UXNaN_FMjpg_QL85_.jpg" alt="cover" /></a>
-=======
       <a [routerLink]="['/song/',song.id]"><img [src]="'data:image/jpeg;base64,'+song.image" alt="cover" /></a>
->>>>>>> 90bae6e2ef531e28456ae8d329c02222c768d515
       <div class="play-icon">
         <i class="fa fa-play"></i>
       </div>
