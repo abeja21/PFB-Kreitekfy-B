@@ -24,6 +24,10 @@ public class Song {
     @Positive
     private Double duration;
 
+    @Column
+    @Positive
+    private Integer plays;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+1")
     private Date dateLaunch;
@@ -97,4 +101,11 @@ public class Song {
         this.style = style;
     }
 
+    public Integer getPlays() {
+        return plays;
+    }
+
+    public void setPlays(Integer plays) {
+        this.plays = plays;
+    }
 }
