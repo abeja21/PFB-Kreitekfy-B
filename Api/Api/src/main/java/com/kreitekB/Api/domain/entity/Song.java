@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "songs")
@@ -23,9 +23,6 @@ public class Song {
     @Column
     private String duration;
 
-    @Column
-    @Positive
-    private Integer plays;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+1")
@@ -43,6 +40,8 @@ public class Song {
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
+    @OneToMany(mappedBy = "song",cascade = CascadeType.ALL)
+    private List<Rating> ratings;
 
     public long getId() {
         return id;
@@ -100,11 +99,12 @@ public class Song {
         this.style = style;
     }
 
-    public Integer getPlays() {
-        return plays;
+
+    public List<Rating> getRatings() {
+        return ratings;
     }
 
-    public void setPlays(Integer plays) {
-        this.plays = plays;
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 }
