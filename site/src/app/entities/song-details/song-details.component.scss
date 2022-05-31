@@ -79,7 +79,7 @@ i:hover{
     background-color: #121212;
   }
   img {
-    max-width: 400px;
+    max-width: 600px;
   }
   .card {
     flex: 1 0 auto;
@@ -89,6 +89,24 @@ i:hover{
     font-weight: 300;
     background-color : #fff;
   }
+
+  .name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+  }
+  .album{
+    font-size: 25px;
+  }
+  .artist{
+    font-size: 25px
+  }
+  .style{
+    font-size: 25px
+  }
+  .duration{
+    font-size: 25px
+  }
+
   fieldset, label { 
     margin: 0; 
     padding: 0; 
@@ -132,3 +150,12 @@ i:hover{
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, 
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+.fa-play{
+margin-top: 0.6em;
+font-size: 50px;
+}
+.fa-play:active {
+  transform: translateY(2px);
+  
+}

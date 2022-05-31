@@ -16,6 +16,12 @@ export class SongDetailsComponent implements OnInit {
   constructor(private songdetailsService: SongDetailsService,
   private route: Router, private router:ActivatedRoute) { }
 
+  counter = 0;
+
+  increment() {
+    this.counter++;
+    console.log(this.counter)
+  }
 
   ngOnInit(): void {
 
