@@ -16,17 +16,18 @@ export class SongDetailsComponent implements OnInit {
   constructor(private songdetailsService: SongDetailsService,
   private route: Router, private router:ActivatedRoute) { }
 
-  counter = 0;
-
-  increment() {
-    this.counter++;
-    console.log(this.counter)
-  }
-
   ngOnInit(): void {
 
     this.username = localStorage.getItem('user')!
     this.getSongDetails()
+  }
+
+  plays = 0;
+
+  increment() {
+    this.plays++;
+    let counter = this.plays
+    console.log(counter)
   }
 
   public getSongDetails(){

@@ -17,5 +17,7 @@ export class SongDetailsService {
     
     console.log(baseUrl)
     return this.http.get<SongDetails>(baseUrl)
+
+    
   }
 }
