@@ -12,14 +12,14 @@
     </div>
   </header>
 <div class="container">
-    <img [src]="img" />
+    <img [src]="'data:image/jpeg;base64,'+song.image" />
     <section class="card">
         <div>
-            <p>{{title}}</p>
-            <p>Album: {{Album}}</p>
-            <p>Artista/s: {{singer}}</p>
-            <p>Estilo: {{style}}</p>
-            <p>Duración(segundos): {{duration}}</p>
+            <p>{{song.name}}</p>
+            <p>Album: {{song.albumName}}</p>
+            <p>Artista/s: {{song.artistName}}</p>
+            <p>Estilo: {{song.styleName}}</p>
+            <p>Duración(segundos): {{song.duration}}</p>
             <fieldset class="rating">
                 <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
                 <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half"></label>
