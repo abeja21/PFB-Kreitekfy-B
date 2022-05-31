@@ -21,8 +21,11 @@ public class Song {
     private String name;
 
     @Column
+    private String duration;
+
+    @Column
     @Positive
-    private Double duration;
+    private Integer plays;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+1")
@@ -57,11 +60,11 @@ public class Song {
         this.name = name;
     }
 
-    public Double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
@@ -97,4 +100,11 @@ public class Song {
         this.style = style;
     }
 
+    public Integer getPlays() {
+        return plays;
+    }
+
+    public void setPlays(Integer plays) {
+        this.plays = plays;
+    }
 }

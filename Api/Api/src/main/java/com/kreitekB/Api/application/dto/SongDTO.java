@@ -12,9 +12,11 @@ public class SongDTO implements Serializable {
 
     private byte[] image;
 
-    private Double duration;
+    private String duration;
 
     private Date dateLaunch=new Date();
+
+    private Integer plays;
 
     private Long albumId;
 
@@ -55,11 +57,11 @@ public class SongDTO implements Serializable {
         this.image = image;
     }
 
-    public Double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
@@ -117,5 +119,13 @@ public class SongDTO implements Serializable {
 
     public void setStyleName(String styleName) {
         this.styleName = styleName;
+    }
+
+    public Integer getPlays() {
+        return plays;
+    }
+
+    public void setPlays(Integer plays) {
+        this.plays = plays;
     }
 }
