@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SongDetails } from './model/song-details.model';
 import { SongDetailsService } from './service/song-details.service';
 
 @Component({
@@ -8,16 +9,9 @@ import { SongDetailsService } from './service/song-details.service';
   styleUrls: ['./song-details.component.scss']
 })
 export class SongDetailsComponent implements OnInit {
-
+  date: Date = new Date
+  song!: SongDetails
   username!: string
-  title!: string
-  singer!: string
-  duration!: string
-  upload_date!: Date 
-  style!: string
-  Album!: string
-  img!: string
-  Rating!: number[]
 
   constructor(private songdetailsService: SongDetailsService,
   private route: Router, private router:ActivatedRoute) { }
@@ -34,14 +28,7 @@ export class SongDetailsComponent implements OnInit {
     this.songdetailsService.getSongDetails(entryParam).subscribe({
       next:(data)=>{
         console.log(data)
-        this.title = data.title
-        this.singer = data.singer
-        this.duration = data.duration
-        this.upload_date = data.upload_date
-        this.style = data.style
-        this.Album = data.Album
-        this.img = data.img
-        this.Rating = data.Rating
+        this.song = data
       },
       error: (err) => {console.log(err);}
     })
