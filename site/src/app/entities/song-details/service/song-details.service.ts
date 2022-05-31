@@ -13,7 +13,7 @@ export class SongDetailsService {
 
   public getSongDetails(id:string):Observable<SongDetails>{
 
-    let baseUrl = "http://localhost:3000/song/" + id
+    let baseUrl = "http://localhost:3000/songs/" + id
     
     console.log(baseUrl)
     return this.http.get<SongDetails>(baseUrl)

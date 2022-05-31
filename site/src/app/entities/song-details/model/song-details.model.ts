@@ -1,4 +1,5 @@
 export class SongDetails{
+    id: number;
     title: string;
     singer: string;
     duration: string;
@@ -11,6 +12,7 @@ export class SongDetails{
 
 
   constructor(
+    id: number,
     title: string, 
     singer: string,
     duration: string, 
@@ -21,6 +23,7 @@ export class SongDetails{
     img: string,
     Rating: number[]
 ) {
+    this.id = id
     this.title = title
     this.singer = singer
     this.duration = duration
