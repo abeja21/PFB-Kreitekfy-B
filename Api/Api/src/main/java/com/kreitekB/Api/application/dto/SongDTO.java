@@ -16,7 +16,7 @@ public class SongDTO implements Serializable {
 
     private Date dateLaunch=new Date();
 
-    private Integer plays;
+    private Integer plays=0;
 
     private Long albumId;
 

@@ -24,7 +24,6 @@ public class Song {
     private String duration;
 
     @Column
-    @Positive
     private Integer plays;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
