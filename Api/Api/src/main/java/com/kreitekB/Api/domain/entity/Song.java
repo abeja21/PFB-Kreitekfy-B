@@ -21,8 +21,7 @@ public class Song {
     private String name;
 
     @Column
-    @Positive
-    private Double duration;
+    private String duration;
 
     @Column
     @Positive
@@ -61,11 +60,11 @@ public class Song {
         this.name = name;
     }
 
-    public Double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

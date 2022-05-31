@@ -12,7 +12,7 @@ public class SongDTO implements Serializable {
 
     private byte[] image;
 
-    private Double duration;
+    private String duration;
 
     private Date dateLaunch=new Date();
 
@@ -57,11 +57,11 @@ public class SongDTO implements Serializable {
         this.image = image;
     }
 
-    public Double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
