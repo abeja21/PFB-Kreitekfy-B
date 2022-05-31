@@ -4,11 +4,15 @@ export class Song{
     name: string;
     duration: string;
     dateLaunch: Date;
-    styleName: string;
     plays: number;
-    artistName: string;
-    albumName: string[];
-    image: string
+    image: string;
+    rating: number;
+    styleId?: number
+    styleName?: string;
+    artistId?: number
+    artistName?: string;
+    albumId?: number
+    albumName?: string;
 
 
 
@@ -17,25 +21,30 @@ export class Song{
     name: string, 
     duration: string, 
     dateLaunch: Date, 
-    styleName: string, 
     plays: number, 
-    artistName: string, 
-    albumName: string[], 
-    image: string
+    image: string, 
+    rating: number, 
+    styleId?: number, 
+    styleName?: string, 
+    artistId?: number, 
+    artistName?: string, 
+    albumId?: number, 
+    albumName?: string
 ) {
     this.id = id
     this.name = name
     this.duration = duration
     this.dateLaunch = dateLaunch
-    this.styleName = styleName
     this.plays = plays
-    this.artistName = artistName
-    this.albumName = albumName
     this.image = image
+    this.rating = rating
+    this.styleId = styleId
+    this.styleName = styleName
+    this.artistId = artistId
+    this.artistName = artistName
+    this.albumId = albumId
+    this.albumName = albumName
   }
-
-
-
 
 
 }
