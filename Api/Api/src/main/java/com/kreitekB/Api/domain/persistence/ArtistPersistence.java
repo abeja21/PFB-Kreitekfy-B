@@ -7,11 +7,13 @@ import java.util.Optional;
 
 public interface ArtistPersistence {
 
-    List<Artist> getAllArtist();
 
-    Optional<Artist> getArtistById(long artistId);
+    List<Artist> getAllArtists();
+
+    Optional<Artist> getArtistById(Long artistId);
 
     Artist saveArtist(Artist artist);
 
     void deleteArtist(Long artistId);
+
 }

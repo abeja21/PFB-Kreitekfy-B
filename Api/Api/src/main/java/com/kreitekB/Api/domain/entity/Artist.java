@@ -4,25 +4,26 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "artist")
+@Table(name = "artists")
 public class Artist {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "artistSequence")
-    private long id;
 
-    @Column(length = 100,nullable = false)
-    @Size(min=1,max = 100)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "artistSequence")
+    private Long id;
+
+    @Column(length = 100, nullable = false)
+    @Size(min = 3, max = 100)
     private String name;
 
     public Artist() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
