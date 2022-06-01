@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NewSongsService } from 'src/app/entities/news-songs/service/new-songs.service';
 import { Song } from '../backoffice/model/song.model';
 import { BackofficeService } from '../backoffice/service/backoffice.service';
+import { SearchService } from './service/search.service';
 
 @Component({
   selector: 'app-player',
@@ -19,12 +21,14 @@ export class PlayerComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private backOfficeService: BackofficeService) { }
+              private searchservice: SearchService,
+              private newSongs: NewSongsService) { }
 
   ngOnInit(): void {
     const entryParam: string = this.route.snapshot.paramMap.get("name")!
 
     this.name = entryParam
+
   }
 
 
@@ -39,7 +43,7 @@ export class PlayerComponent implements OnInit {
 
 
     if(this.styleFilter) {
-      filters.push("style.name:EQUAL:" + this.styleFilter);
+      filters.push("style.name:MATCH:" + this.styleFilter);
     }
 
 
@@ -66,10 +70,11 @@ export class PlayerComponent implements OnInit {
 
     const filters: string | undefined = this.buildFilters();
 
-    this.backOfficeService.getSongs(this.size, filters).subscribe({
+    this.searchservice.getnewSongsAndFilters(filters).subscribe({
       next: (data: any) => {
         this.songList = data.content
-        console.log(this.songList) 
+        console.log(this.songList)
+
       }
     })
   }
