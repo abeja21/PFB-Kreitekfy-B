@@ -5,8 +5,8 @@ export class Song{
     duration: string;
     dateLaunch: Date;
     plays: number;
-    image: string;
-    rating: number;
+    image?: string;
+    rating: [];
     styleId?: number
     styleName?: string;
     artistId?: number
@@ -22,14 +22,15 @@ export class Song{
     duration: string, 
     dateLaunch: Date, 
     plays: number, 
-    image: string, 
-    rating: number, 
+    rating: [],
+    image?: string,
     styleId?: number, 
     styleName?: string, 
     artistId?: number, 
     artistName?: string, 
     albumId?: number, 
     albumName?: string
+    
 ) {
     this.id = id
     this.name = name
