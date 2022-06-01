@@ -10,5 +10,4 @@ import java.util.List;
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist,Long>, JpaSpecificationExecutor<Artist> {
     List<Artist> findByNameContainsIgnoreCase(String partialName);
-
 }
