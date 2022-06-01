@@ -113,7 +113,7 @@ export class SongFormComponent implements OnInit {
     }
 
     if (this.mode === 'UPDATE') {
-      this.insertSong();
+      this.updateSong();
     }
   }
 
@@ -257,6 +257,7 @@ export class SongFormComponent implements OnInit {
   }
 
   private insertSong(): void {
+    console.log(this.song);
     this.songService.create(this.song!).subscribe({
       next: (songInserted: any) => {
         console.log('Insertado correctamente');

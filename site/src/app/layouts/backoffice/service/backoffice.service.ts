@@ -20,4 +20,9 @@ export class BackofficeService {
     console.log(baseUrl)
     return this.http.get<Song[]>(baseUrl);
   }
+
+  public deleteSong(id: number): Observable<any>{
+    let baseUrl = "http://localhost:8080/PFB/songs/" + id
+    return this.http.delete<any>(baseUrl)
+  }
 }

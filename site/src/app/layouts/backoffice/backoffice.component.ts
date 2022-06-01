@@ -9,11 +9,12 @@ import { BackofficeService } from './service/backoffice.service';
   styleUrls: ['./backoffice.component.scss']
 })
 export class BackofficeComponent implements OnInit {
-
+  username!: string
   size: number = 25;
   sort: string = "name,asc";
 
   songList: Song[] = []
+  songIdToDelete!: number
   styleFilter?: string;
   singerFilter?: number;
   albumFilter?: string;
@@ -26,6 +27,7 @@ export class BackofficeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSongs()
+    this.username = localStorage.getItem('user')!
   }
 
   public searchByFilters():void {
@@ -37,13 +39,13 @@ export class BackofficeComponent implements OnInit {
 
 
     if(this.styleFilter) {
-      filters.push("name:MATCH:" + this.styleFilter);
+      filters.push("style.name:EQUAL:" + this.styleFilter);
     }
     if(this.singerFilter) {
-      filters.push("artistName:" + this.singerFilter);
+      filters.push("artist.name:EQUAL:" + this.singerFilter);
     }
     if(this.albumFilter) {
-      filters.push("name:MATCH:" + this.albumFilter);
+      filters.push("album.name:EQUAL:" + this.albumFilter);
     }
     if(this.titleFilter) {
       filters.push("name:MATCH:" + this.titleFilter);
@@ -81,6 +83,21 @@ export class BackofficeComponent implements OnInit {
     })
 
 
+  }
+
+  public prepareSongToDelete(songId: number): void {
+    this.songIdToDelete = songId;
+  }
+
+  public deleteSong(): void {
+    if (this.songIdToDelete) {
+      this.backOfficeService.deleteSong(this.songIdToDelete).subscribe({
+        next: (data) => {
+          this.getSongs();
+        },
+        error: (err) => {console.log(err)}
+      })
+    }
   }
 
 }
