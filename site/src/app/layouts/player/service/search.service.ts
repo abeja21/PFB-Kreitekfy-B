@@ -15,7 +15,6 @@ export class SearchService {
     if(filters) {
       baseUrl  =  baseUrl + "&filter=" + filters
     }
-    console.log(baseUrl)
     return this.http.get<Song[]>(baseUrl);
   }
   

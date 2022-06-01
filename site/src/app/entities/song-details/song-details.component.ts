@@ -64,6 +64,7 @@ export class SongDetailsComponent implements OnInit {
     console.log(this.song.rating)
     this.songdetailsService.updateSong(this.song).subscribe({
       next:(data) =>{
+        location.reload()
       },
       error: (err) => {console.log(err);}
     })

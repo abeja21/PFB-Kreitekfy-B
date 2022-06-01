@@ -19,7 +19,6 @@ export class SongsMostFamousComponent implements OnInit {
     this.famousService.getfamousSongs().subscribe({
       next: (data: any) => {
         this.songList = data.content;
-        console.log(this.songList);
       },
     });
   }

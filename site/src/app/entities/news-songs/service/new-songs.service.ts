@@ -10,8 +10,13 @@ export class NewSongsService {
 
   constructor(private http: HttpClient) { }
 
-  public getnewSongs(): Observable<Song[]>{
+  public getnewSongs(filters?: string): Observable<Song[]>{
     let baseUrl = "http://localhost:8080/PFB/songs?size=5&sort=dateLaunch,desc";
+
+    if(filters) {
+      baseUrl  =  baseUrl + "&filter=" + filters
+    }
+    console.log(baseUrl)
     return this.http.get<Song[]>(baseUrl);
   }
 }

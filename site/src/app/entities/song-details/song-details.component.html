@@ -1,7 +1,6 @@
 <header>
   <div class="nav-left">
     <i [routerLink]="['/player/',username]" class="fa-solid fa-arrow-left"></i>
-    <input class="nav-search" type="text" placeholder="Buscar" />
   </div>
   <div class="nav-right">
     <img class="nav-image" src="https://icon-library.com/images/my-profile-icon-png/my-profile-icon-png-22.jpg" />
@@ -9,7 +8,7 @@
   </div>
 </header>
 <div class="container">
-  <img [src]="'data:image/jpeg;base64,'+ song.image" />
+  <img class="img" [src]="'data:image/jpeg;base64,'+ song.image" />
   <section class="card">
     <div>
       <p class="name">{{song.name}}</p>

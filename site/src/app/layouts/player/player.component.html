@@ -15,7 +15,23 @@
 
 <div class="main">
   <div class="content">
-  <app-news-songs></app-news-songs>
+  <div *ngIf="songList else newSongs">
+    <div class="card" *ngFor="let song of songList">
+      <div class="cover">
+        <a [routerLink]="['/song/',song.id]"><img [src]="'data:image/jpeg;base64,' + song.image" alt="cover" /></a>
+        <div class="play-icon">
+          <i class="fa fa-play"></i>
+        </div>
+      </div>
+      <div class="card-content">
+        <h4>{{song.name}}</h4>
+      </div>
+    </div>
+  </div>
+  <ng-template #newSongs>
+    <app-news-songs></app-news-songs>
+  </ng-template>
+
 	<app-songs-most-famous></app-songs-most-famous>
   <app-songs-best-rated></app-songs-best-rated>
 	<app-songs-for-you></app-songs-for-you>

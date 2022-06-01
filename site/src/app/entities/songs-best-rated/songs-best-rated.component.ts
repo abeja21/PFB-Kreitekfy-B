@@ -20,7 +20,6 @@ export class SongsBestRatedComponent implements OnInit {
     this.bestRatedService.getnewSongs().subscribe({
       next: (data: any) => {
         this.songList = data.content;
-        console.log(this.songList);
       },
     });
   }

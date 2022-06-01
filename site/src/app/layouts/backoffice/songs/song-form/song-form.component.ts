@@ -25,7 +25,7 @@ export class SongFormComponent implements OnInit {
   songId?: number;
   song?: Song;
   songForm?: FormGroup;
-  date = new Date
+  date = new Date();
   styles: Style[] = [];
   albums: Album[] = [];
   artist: Artist[] = [];
@@ -191,7 +191,7 @@ export class SongFormComponent implements OnInit {
       artistName: this.songForm?.get(['artist'])!.value.name,
       styleId: this.songForm?.get(['style'])!.value.id,
       styleName: this.songForm?.get(['style'])!.value.name,
-      image: this.song!.image
+      image: this.song!.image,
     };
   }
 
@@ -206,34 +206,6 @@ export class SongFormComponent implements OnInit {
       Album: new Album(song.albumId!, song.albumName!),
       Artist: new Artist(song.artistId!, song.artistName!),
       Style: new Style(song.styleId!, song.styleName!),
-    });
-  }
-
-  private getImageType(imageString: string): string {
-    const imageStringParts: string[] = imageString.split(',');
-    if (imageStringParts.length == 2) {
-      return imageStringParts[0];
-    } else {
-      return '';
-    }
-  }
-
-  private getImageBase64(imageString: string): string {
-    const imageStringParts: string[] = imageString.split(',');
-    if (imageStringParts.length == 2) {
-      return imageStringParts[1];
-    } else {
-      return '';
-    }
-  }
-
-  private readFileAsString(file: File) {
-    return new Promise<string>(function (resolve, reject) {
-      let reader: FileReader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        resolve(this.result as string);
-      };
     });
   }
 
@@ -275,7 +247,7 @@ export class SongFormComponent implements OnInit {
   }
 
   private initializeSong(): void {
-    this.song = new Song(0, '', '', new Date(), 0,  [],"");
+    this.song = new Song(0, '', '', new Date(), 0, [], '');
   }
 
   private handleError(err: any): void {

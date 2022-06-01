@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NewsSongsComponent } from 'src/app/entities/news-songs/news-songs.component';
 import { NewSongsService } from 'src/app/entities/news-songs/service/new-songs.service';
 import { Song } from '../backoffice/model/song.model';
 import { BackofficeService } from '../backoffice/service/backoffice.service';
-import { SearchService } from './service/search.service';
 
 @Component({
   selector: 'app-player',
@@ -17,17 +17,19 @@ export class PlayerComponent implements OnInit {
 
   songList: Song[] = []
   songIdToDelete!: number
-  styleFilter?: string;
+  styleFilter!: string;
+  
+  newSongComponent?: NewsSongsComponent
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private searchservice: SearchService,
-              private newSongs: NewSongsService) { }
+              private backoffice: BackofficeService,
+              private newsongservice: NewSongsService) { }
 
   ngOnInit(): void {
     const entryParam: string = this.route.snapshot.paramMap.get("name")!
-
     this.name = entryParam
+    this.getSongs()
 
   }
 
@@ -39,8 +41,8 @@ export class PlayerComponent implements OnInit {
   }
 
   private buildFilters(): string | undefined {
+    
     const filters: string[] = [];
-
 
     if(this.styleFilter) {
       filters.push("style.name:MATCH:" + this.styleFilter);
@@ -54,7 +56,6 @@ export class PlayerComponent implements OnInit {
         globalFilters = globalFilters + filter + ",";
       }
       globalFilters = globalFilters.substring(0, globalFilters.length-1);
-      console.log(globalFilters)
       return globalFilters;
     } else {
       return undefined;
@@ -63,18 +64,17 @@ export class PlayerComponent implements OnInit {
 
 
   public searchByFilters():void {
-    this.getSongs();
+    this.getSongs()
   }
 
-  getSongs(){
+  
+  getSongs(): any{
 
     const filters: string | undefined = this.buildFilters();
 
-    this.searchservice.getnewSongsAndFilters(filters).subscribe({
+    this.newsongservice.getnewSongs(filters).subscribe({
       next: (data: any) => {
-        this.songList = data.content
-        console.log(this.songList)
-
+        console.log(data.content)
       }
     })
   }

@@ -59,7 +59,6 @@ export class BackofficeComponent implements OnInit {
         globalFilters = globalFilters + filter + ",";
       }
       globalFilters = globalFilters.substring(0, globalFilters.length-1);
-      console.log(globalFilters)
       return globalFilters;
     } else {
       return undefined;
@@ -74,7 +73,6 @@ export class BackofficeComponent implements OnInit {
     this.backOfficeService.getSongs(this.size, filters).subscribe({
       next: (data: any) => {
         this.songList = data.content
-        console.log(this.songList) 
       }
     })
   }

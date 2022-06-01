@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BackofficeComponent } from './layouts/backoffice/backoffice.component';
 import { PlayerComponent } from './layouts/player/player.component';
-import { SongListComponent } from './entities/song-list/song-list.component';
 import { NewsSongsComponent } from './entities/news-songs/news-songs.component';
 import { SongsMostFamousComponent } from './entities/songs-most-famous/songs-most-famous.component';
 import { SongsBestRatedComponent } from './entities/songs-best-rated/songs-best-rated.component';
@@ -28,7 +27,6 @@ import { AlbumComponent } from './layouts/backoffice/album/album/album.component
     AppComponent,
     BackofficeComponent,
     PlayerComponent,
-    SongListComponent,
     NewsSongsComponent,
     SongsMostFamousComponent,
     SongsBestRatedComponent,
