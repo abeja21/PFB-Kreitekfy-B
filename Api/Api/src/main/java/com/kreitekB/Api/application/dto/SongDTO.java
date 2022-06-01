@@ -1,10 +1,6 @@
 package com.kreitekB.Api.application.dto;
 
-import com.kreitekB.Api.domain.entity.Rating;
-
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +16,7 @@ public class SongDTO implements Serializable {
 
     private Date dateLaunch=new Date();
 
-    private Integer plays;
+    private Integer plays=0;
 
     private Long albumId;
 
@@ -34,9 +30,18 @@ public class SongDTO implements Serializable {
 
     private String styleName;
 
-    private List<Rating> rating;
+    private Integer[] rating;
+
 
     public SongDTO() {
+    }
+
+    public Integer[] getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer[] rating) {
+        this.rating = rating;
     }
 
     public long getId() {
@@ -135,11 +140,4 @@ public class SongDTO implements Serializable {
         this.plays = plays;
     }
 
-    public List<Rating> getRating() {
-        return rating;
-    }
-
-    public void setRating(List<Rating> rating) {
-        this.rating = rating;
-    }
 }

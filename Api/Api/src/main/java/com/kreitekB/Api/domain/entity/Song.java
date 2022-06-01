@@ -28,6 +28,16 @@ public class Song {
     @Column
     private Integer plays;
 
+    @Column
+    private Integer[] rating;
+
+    public Integer[] getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer[] rating) {
+        this.rating = rating;
+    }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+1")
@@ -45,8 +55,7 @@ public class Song {
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
-    @OneToMany(mappedBy = "song",cascade = CascadeType.ALL)
-    Set<Rating> rating;
+
 
     public long getId() {
         return id;
@@ -104,13 +113,6 @@ public class Song {
         this.style = style;
     }
 
-    public Set<Rating> getRatings() {
-        return rating;
-    }
-
-    public void setRatings(Set<Rating> ratings) {
-        this.rating = ratings;
-    }
 
     public Integer getPlays() {
         return plays;
