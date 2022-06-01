@@ -16,7 +16,7 @@ export class AlbumService {
     
     let urlEndpoint: string = this.baseUrl + "albums/";
     if (partialName) {
-      urlEndpoint = urlEndpoint + "?MATCH=" + partialName;
+      urlEndpoint = urlEndpoint + "?MATCH:" + partialName;
     } 
     return this.http.get<Album[]>(urlEndpoint);
   }
