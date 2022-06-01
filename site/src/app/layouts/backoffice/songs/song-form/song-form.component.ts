@@ -210,7 +210,7 @@ export class SongFormComponent implements OnInit {
       artistName: this.songForm?.get(['artist'])!.value.name,
       styleId: this.songForm?.get(['style'])!.value.id,
       styleName: this.songForm?.get(['style'])!.value.name,
-      image: this.song!.image,
+      image: this.song!.image
     };
   }
 
@@ -294,7 +294,7 @@ export class SongFormComponent implements OnInit {
   }
 
   private initializeSong(): void {
-    this.song = new Song(0, '', '', new Date(), 0, '', 0);
+    this.song = new Song(0, '', '', new Date(), 0,  [],"");
   }
 
   private handleError(err: any): void {
