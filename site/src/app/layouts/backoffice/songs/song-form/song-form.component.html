@@ -4,9 +4,8 @@
     <div id="formulario" class="form">
         <form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
 
-            <div class="section">
-                <label for="id">Id</label>
-                <input disabled type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id"
+            <div class="form-group">
+                <input hidden type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id"
                     #id="ngModel">
             </div>
 

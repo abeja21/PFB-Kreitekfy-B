@@ -12,11 +12,12 @@ export class SongDetailsComponent implements OnInit {
   date: Date = new Date
   song!: SongDetails
   username!: string
+  counter: number = 0;
 
   constructor(private songdetailsService: SongDetailsService,
   private route: Router, private router:ActivatedRoute) { }
 
-  counter = 0;
+  
 
 
 

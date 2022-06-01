@@ -37,7 +37,9 @@ label{
     margin: auto;
 }
 .btn{
+  margin: 0em 1em;
     margin-top: 0.5em;
+    
 }
 tr{
   margin: 3em 3em;
@@ -51,7 +53,6 @@ tr{
   border: 0;
   border-radius: 5px;
   padding: 5px 15px;
-  margin-right: 1em;
 }
 
 .edit{
@@ -59,4 +60,11 @@ tr{
   border: 0;
   border-radius: 5px;
   padding: 5px 12px;
+}
+.deleteConfirm{
+  background-color: rgb(255, 72, 72);
+  border: none;
+}
+.fa-arrow-left{
+  color: white;
 }
