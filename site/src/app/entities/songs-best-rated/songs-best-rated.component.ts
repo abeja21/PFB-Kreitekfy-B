@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Song } from 'src/app/layouts/backoffice/model/song.model';
+import { BestRatedService } from './services/best-rated.service';
 
 @Component({
   selector: 'app-songs-best-rated',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./songs-best-rated.component.scss']
 })
 export class SongsBestRatedComponent implements OnInit {
-
-  constructor() { }
+  songList: Song[] = [];
+  
+  constructor(private bestRatedService: BestRatedService) { }
 
   ngOnInit(): void {
+    this.getnewSongs();
+  }
+
+  getnewSongs() {
+    this.bestRatedService.getnewSongs().subscribe({
+      next: (data: any) => {
+        this.songList = data.content;
+        console.log(this.songList);
+      },
+    });
   }
 
 }

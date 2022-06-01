@@ -73,16 +73,10 @@ export class BackofficeComponent implements OnInit {
 
     this.backOfficeService.getSongs(this.size, filters).subscribe({
       next: (data: any) => {
-
         this.songList = data.content
-
-        
-        console.log(this.songList)
-        
+        console.log(this.songList) 
       }
     })
-
-
   }
 
   public prepareSongToDelete(songId: number): void {

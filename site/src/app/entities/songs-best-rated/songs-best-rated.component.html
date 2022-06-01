@@ -1,46 +1,17 @@
 <h4>Lo mejor valorado</h4>
 <div class="border-bottom"></div>
 
-<div class="card">
-    <div class="cover">
-      <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Muse_2nd_law.jpg" alt="cover" />
-      <div class="play-icon">
-        <i class="fa fa-play"></i>
-      </div>
-    </div>
-    <div class="card-content">
-      <h4>Muse: The Singless</h4>
-      <p>Listen to Muses's singles now, including Supermassive black hole</p>
+<div class="card" *ngFor="let song of songList">
+  <div class="cover">
+    <a [routerLink]="['/song/',song.id]"><img [src]="'data:image/jpeg;base64,'+song.image" alt="cover" /></a>
+    <div class="play-icon">
+      <i class="fa fa-play"></i>
     </div>
   </div>
-
-
-<div class="card">
-    <div class="cover artist">
-      <img src="https://media.pitchfork.com/photos/608839f84c67840074db8afb/1:1/w_600/Billie-Eilish-Happier-Than-Ever.jpeg" alt="cover" />
-      <div class="play-icon">
-        <i class="fa fa-play"></i>
-      </div>
-    </div>
-    <div class="card-content">
-      <h4>Billie Eilish</h4>
-      <p>Artist</p>
-    </div>
+  <div class="card-content">
+    <h4>{{song.name}}</h4>
   </div>
-
-
-<div class="card">
-    <div class="cover">
-      <img src="https://media.pitchfork.com/photos/5c7d593e3a5a154e7b62f576/1:1/w_600/Dido_StillOnMyMind.jpg" alt="cover" />
-      <div class="play-icon">
-        <i class="fa fa-play"></i>
-      </div>
-    </div>
-    <div class="card-content">
-      <h4>Still on My Mind</h4>
-      <p>Dido</p>
-    </div>
-  </div>
+</div>
 
 
 

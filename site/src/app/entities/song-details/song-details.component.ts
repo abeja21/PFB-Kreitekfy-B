@@ -43,8 +43,7 @@ export class SongDetailsComponent implements OnInit {
 
   public updateplays(){
     this.song.plays++
-    const entryParam = this.router.snapshot.paramMap.get("id")!
-    this.songdetailsService.addplays(entryParam, this.song).subscribe({
+    this.songdetailsService.updateSong(this.song).subscribe({
       next:(data) =>{
       },
       error: (err) => {console.log(err);}
@@ -61,6 +60,12 @@ export class SongDetailsComponent implements OnInit {
   }
 
   updateRating(stars: any){
-    console.log(stars)
+    this.song.rating.push(stars.value)
+    console.log(this.song.rating)
+    this.songdetailsService.updateSong(this.song).subscribe({
+      next:(data) =>{
+      },
+      error: (err) => {console.log(err);}
+    })
   }
 }
