@@ -17,6 +17,8 @@ export class SongDetailsService {
     
     console.log(baseUrl)
     return this.http.get<SongDetails>(baseUrl)
+
+    
   }
 
   public addplays(id:string, plays: number):Observable<SongDetails>{
