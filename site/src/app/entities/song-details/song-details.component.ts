@@ -16,18 +16,21 @@ export class SongDetailsComponent implements OnInit {
   constructor(private songdetailsService: SongDetailsService,
   private route: Router, private router:ActivatedRoute) { }
 
+  counter = 0;
+
+
+
   ngOnInit(): void {
 
     this.username = localStorage.getItem('user')!
     this.getSongDetails()
   }
 
-  plays = 0;
-
   increment() {
-    this.plays++;
-    let counter = this.plays
-    console.log(counter)
+    this.counter++;
+    console.log(this.counter)
+    this.updateplays()
+    
   }
 
   public getSongDetails(){
@@ -36,6 +39,16 @@ export class SongDetailsComponent implements OnInit {
       next:(data)=>{
         console.log(data)
         this.song = data
+      },
+      error: (err) => {console.log(err);}
+    })
+  }
+
+  public updateplays(){
+    const entryParam = this.router.snapshot.paramMap.get("id")!
+    this.songdetailsService.addplays(entryParam, this.counter).subscribe({
+      next:(data) =>{
+        console.log(data)
       },
       error: (err) => {console.log(err);}
     })

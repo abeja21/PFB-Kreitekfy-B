@@ -20,4 +20,12 @@ export class SongDetailsService {
 
     
   }
+
+  public addplays(id:string, plays: number):Observable<SongDetails>{
+
+    let baseUrl = "http://localhost:8080/PFB/songs/" + id
+    
+    console.log(baseUrl)
+    return this.http.put<SongDetails>(baseUrl, plays)
+  }
 }
