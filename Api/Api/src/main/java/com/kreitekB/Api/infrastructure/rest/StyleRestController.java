@@ -3,7 +3,10 @@ package com.kreitekB.Api.infrastructure.rest;
 import com.kreitekB.Api.application.dto.StyleDTO;
 import com.kreitekB.Api.application.service.StyleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +52,13 @@ public class StyleRestController {
     ResponseEntity<?> deleteStyleById(@PathVariable Long styleId) {
         this.styleService.deleteStyle(styleId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/styles_filter", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Page<StyleDTO>> getStylesByCriteriaPaged(@RequestParam(value = "filter", required = false) String filter, Pageable pageable) {
+
+        Page<StyleDTO> styles = this.styleService.getStylesByCriteriaStringPaged(pageable, filter);
+        return new ResponseEntity<Page<StyleDTO>>(styles, HttpStatus.OK);
     }
 }

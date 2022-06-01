@@ -4,7 +4,10 @@ package com.kreitekB.Api.infrastructure.rest;
 import com.kreitekB.Api.application.dto.ArtistDTO;
 import com.kreitekB.Api.application.service.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,5 +55,13 @@ public class ArtistRestController {
     ResponseEntity<?> deleteArtistById(@PathVariable Long artistId) {
         this.artistService.deleteArtist(artistId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/artists_filter", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Page<ArtistDTO>> getArtistsByCriteriaPaged(@RequestParam(value = "filter", required = false) String filter, Pageable pageable) {
+
+        Page<ArtistDTO> artists = this.artistService.getArtistsByCriteriaStringPaged(pageable, filter);
+        return new ResponseEntity<Page<ArtistDTO>>(artists, HttpStatus.OK);
     }
 }

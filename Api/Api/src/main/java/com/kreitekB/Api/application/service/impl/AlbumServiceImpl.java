@@ -6,6 +6,8 @@ import com.kreitekB.Api.application.service.AlbumService;
 import com.kreitekB.Api.domain.entity.Album;
 import com.kreitekB.Api.domain.persistence.AlbumPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +44,11 @@ public class AlbumServiceImpl implements AlbumService {
     @Override
     public void deleteAlbum(Long albumId) {
         this.persistence.deleteAlbum(albumId);
+    }
+
+    @Override
+    public Page<AlbumDTO> getAlbumsByCriteriaStringPaged(Pageable pageable, String filter) {
+        Page<Album> albumPage = this.persistence.findAll(pageable, filter);
+        return albumPage.map(mapper::toDto);
     }
 }

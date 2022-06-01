@@ -3,6 +3,7 @@ package com.kreitekB.Api.infrastructure.rest;
 
 import com.kreitekB.Api.application.dto.SongDTO;
 import com.kreitekB.Api.application.service.SongService;
+import com.kreitekB.Api.domain.entity.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

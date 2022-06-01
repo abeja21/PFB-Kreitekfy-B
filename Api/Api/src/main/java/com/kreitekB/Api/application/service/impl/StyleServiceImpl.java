@@ -6,6 +6,8 @@ import com.kreitekB.Api.application.service.StyleService;
 import com.kreitekB.Api.domain.entity.Style;
 import com.kreitekB.Api.domain.persistence.StylePersistence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +44,11 @@ public class StyleServiceImpl implements StyleService {
     @Override
     public void deleteStyle(Long styleId) {
         this.persistence.deleteStyle(styleId);
+    }
+
+    @Override
+    public Page<StyleDTO> getStylesByCriteriaStringPaged(Pageable pageable, String filter) {
+        Page<Style> stylePage = this.persistence.findAll(pageable, filter);
+        return stylePage.map(mapper::toDto);
     }
 }

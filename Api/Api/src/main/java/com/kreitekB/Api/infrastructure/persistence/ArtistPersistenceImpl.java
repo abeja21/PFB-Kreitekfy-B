@@ -2,7 +2,11 @@ package com.kreitekB.Api.infrastructure.persistence;
 
 import com.kreitekB.Api.domain.entity.Artist;
 import com.kreitekB.Api.domain.persistence.ArtistPersistence;
+import com.kreitekB.Api.infrastructure.specs.ArtistSpecification;
+import com.kreitekB.Api.infrastructure.specs.shared.SearchCriteriaHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -36,5 +40,12 @@ public class ArtistPersistenceImpl implements ArtistPersistence {
     @Override
     public void deleteArtist(Long artistId) {
         this.artistRepository.deleteById(artistId);
+    }
+
+
+    @Override
+    public Page<Artist> findAll(Pageable pageable, String filter) {
+        ArtistSpecification specification = new ArtistSpecification(SearchCriteriaHelper.fromFilterString(filter));
+        return this.artistRepository.findAll(specification, pageable);
     }
 }
