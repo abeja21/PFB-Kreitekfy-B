@@ -23,9 +23,9 @@ export class SongDetailsService {
 
   public addplays(id:string, song: SongDetails):Observable<SongDetails>{
 
-    let baseUrl = "http://localhost:8080/PFB/songs/" + id
+    let baseUrl = "http://localhost:8080/PFB/songs/"
     
-    console.log(baseUrl)
+    console.log(baseUrl,song)
     return this.http.patch<SongDetails>(baseUrl, song)
   }
 }
