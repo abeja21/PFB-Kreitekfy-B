@@ -6,6 +6,8 @@ import com.kreitekB.Api.application.service.ArtistService;
 import com.kreitekB.Api.domain.entity.Artist;
 import com.kreitekB.Api.domain.persistence.ArtistPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +44,11 @@ public class ArtistServiceImpl implements ArtistService {
     @Override
     public void deleteArtist(Long artistId) {
         this.persistence.deleteArtist(artistId);
+    }
+
+    @Override
+    public Page<ArtistDTO> getArtistsByCriteriaStringPaged(Pageable pageable, String filter) {
+        Page<Artist> artistPage = this.persistence.findAll(pageable, filter);
+        return artistPage.map(mapper::toDto);
     }
 }

@@ -2,7 +2,11 @@ package com.kreitekB.Api.infrastructure.persistence;
 
 import com.kreitekB.Api.domain.entity.Style;
 import com.kreitekB.Api.domain.persistence.StylePersistence;
+import com.kreitekB.Api.infrastructure.specs.StyleSpecification;
+import com.kreitekB.Api.infrastructure.specs.shared.SearchCriteriaHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,5 +39,11 @@ public class StylePersistenceImpl implements StylePersistence {
     @Override
     public void deleteStyle(Long styleId) {
         this.styleRepository.deleteById(styleId);
+    }
+
+    @Override
+    public Page<Style> findAll(Pageable pageable, String filter) {
+        StyleSpecification specification = new StyleSpecification(SearchCriteriaHelper.fromFilterString(filter));
+        return this.styleRepository.findAll(specification, pageable);
     }
 }
