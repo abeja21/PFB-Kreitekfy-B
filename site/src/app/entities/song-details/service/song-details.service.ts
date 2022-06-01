@@ -21,11 +21,11 @@ export class SongDetailsService {
     
   }
 
-  public addplays(id:string, plays: number):Observable<SongDetails>{
+  public addplays(id:string, song: SongDetails):Observable<SongDetails>{
 
     let baseUrl = "http://localhost:8080/PFB/songs/" + id
     
     console.log(baseUrl)
-    return this.http.put<SongDetails>(baseUrl, plays)
+    return this.http.patch<SongDetails>(baseUrl, song)
   }
 }
