@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'player/:name', component: PlayerComponent},
   {path: 'admin', component: BackofficeComponent},
   {path: 'song/:id', component: SongDetailsComponent},
-  {path: 'admin/songEdit/:id', component: SongFormComponent}
+  {path: 'admin/songEdit/:id', component: SongFormComponent},
+  {path: 'admin/songAdd', component: SongFormComponent}
 ];
 
 @NgModule({

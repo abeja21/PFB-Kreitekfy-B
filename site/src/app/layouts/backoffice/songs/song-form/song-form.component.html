@@ -7,8 +7,7 @@
                 <form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
 
                     <div class="form-group">
-                        <label for="id">Id</label>
-                        <input disabled type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id"
+                        <input hidden type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id"
                             #id="ngModel">
                     </div>
 
