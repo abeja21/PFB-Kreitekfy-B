@@ -5,7 +5,7 @@ import com.kreitekB.Api.domain.entity.Song;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = {AlbumMapper.class, ArtistMapper.class, StyleMapper.class,RatingMapper.class})
+@Mapper(componentModel = "spring", uses = {AlbumMapper.class, ArtistMapper.class, StyleMapper.class})
 public interface SongMapper extends EntityMapper<SongDTO, Song>{
 
     default Song fromId(Long id) {
@@ -22,7 +22,7 @@ public interface SongMapper extends EntityMapper<SongDTO, Song>{
     @Mapping(source = "albumId", target = "album")
     @Mapping(source = "artistId", target = "artist")
     @Mapping(source = "styleId", target = "style")
-    //@Mapping(source = "rating",target = "ratings")
+
     Song toEntity(SongDTO dto);
 
 
@@ -36,6 +36,5 @@ public interface SongMapper extends EntityMapper<SongDTO, Song>{
 
     @Mapping(source = "style.id", target = "styleId")
     @Mapping(source = "style.name", target = "styleName")
-    //@Mapping(source = "ratings", target = "rating")
     SongDTO toDto(Song entity);
 }

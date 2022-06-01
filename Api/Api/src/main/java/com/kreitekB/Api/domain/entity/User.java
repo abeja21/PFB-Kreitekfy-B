@@ -19,8 +19,7 @@ public class User {
     @Column(nullable = false)
     private Boolean Admin;
 
-    @OneToMany(mappedBy = "user")
-    Set<Rating> ratings;
+
 
     public User() {
     }
@@ -48,12 +47,7 @@ public class User {
         Admin = admin;
     }
 
-    public Set<Rating> getRatings() {
-        return ratings;
-    }
 
-    public void setRatings(Set<Rating> ratings) {
-        this.ratings = ratings;
-    }
+
 }
 
