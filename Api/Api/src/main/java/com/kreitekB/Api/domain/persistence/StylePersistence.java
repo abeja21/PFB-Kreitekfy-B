@@ -17,5 +17,8 @@ public interface StylePersistence {
     Style saveStyle(Style style);
 
     void deleteStyle(Long styleId);
+
     Page<Style> findAll(Pageable pageable, String filter);
+
+    List<Style> getStylesByName(String partialName);
 }

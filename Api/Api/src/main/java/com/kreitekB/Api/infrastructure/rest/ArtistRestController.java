@@ -32,12 +32,7 @@ public class ArtistRestController {
         ArtistDTO artistSaved = this.artistService.saveArtist(artistDTO);
         return new ResponseEntity<>(artistSaved, HttpStatus.CREATED);
     }
-    @CrossOrigin
-    @GetMapping(value = "/artists", produces = "application/json")
-    ResponseEntity<List<ArtistDTO>> getAllArtists() {
-        List<ArtistDTO> artists = this.artistService.getAllArtists();
-        return new ResponseEntity<>(artists, HttpStatus.OK);
-    }
+
     @CrossOrigin
     @GetMapping(value = "/artists/{artistId}")
     ResponseEntity<ArtistDTO> getArtistById(@PathVariable Long artistId) {
@@ -63,5 +58,18 @@ public class ArtistRestController {
 
         Page<ArtistDTO> artists = this.artistService.getArtistsByCriteriaStringPaged(pageable, filter);
         return new ResponseEntity<Page<ArtistDTO>>(artists, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/artists", produces = "application/json")
+    ResponseEntity<List<ArtistDTO>> getAllArtists(@RequestParam(name = "partialName", required = false) String partialName) {
+        List<ArtistDTO> artists;
+
+        if (partialName == null) {
+            artists = this.artistService.getAllArtists();
+        } else {
+            artists = this.artistService.getArtistsByName(partialName);
+        }
+        return new ResponseEntity<>(artists, HttpStatus.OK);
     }
 }
