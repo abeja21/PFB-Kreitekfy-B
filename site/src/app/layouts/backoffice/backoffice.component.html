@@ -1,0 +1,82 @@
+<div class="nav-left">
+    <i [routerLink]="['']" class="fa-solid fa-arrow-left"></i>
+  </div>
+<div class="containerFiltros">
+
+    <form>
+        <div class="row">
+            <div class="form-group" class="col-5 col-md-2">
+                <label for="style">Estilo</label>
+                <input type="text" [(ngModel)]="styleFilter" name="style">
+            </div>
+
+            <div class="form-group" class="col-5 col-md-2">
+                <label for="singer">Artista</label>
+                <input type="text" [(ngModel)]="singerFilter" name="singer">
+            </div>
+
+            <div class="form-group" class="col-5 col-md-2">
+                <label for="album">Album</label>
+                <input type="texts" [(ngModel)]="albumFilter" name="album">
+            </div>
+
+            <div class="form-group" class="col-5 col-md-2">
+                <label for="title">Titulo</label>
+                <input type="texts" [(ngModel)]="titleFilter" name="title">
+            </div>
+
+            <div class="col-2 col-md-2">
+                <button id="btnSearch" class="btn btn-secondary" (click)="searchByFilters()">Buscar</button>
+                <button type="button" class="btn btn-primary" [routerLink]="['songAdd']">Añadir Cancion</button>
+            </div>
+            
+        </div>
+    </form>
+</div>
+<table class="album-view-song-list">
+    <thead class="album-view-song-list-heading">
+        <tr class="album-view-song-details">
+            <th class="song-item-heading">Track</th>
+            <th class="song-item-title-heading">Titulo</th>
+            <th class="song-item-heading">Album</th>
+            <th class="song-item-heading">Artista</th>
+            <th class="song-item-heading">Estilo</th>
+            <th class="song-item-heading">Reproducciones</th>
+            <th class="song-item-heading">Acciones</th>
+        </tr>
+    </thead>
+    <tr class="album-view-song-item" *ngFor="let song of songList">
+        <td class="song-item"><img class="imgSong" [src]="'data:image/webp;base64,' + song.image"></td>
+        <td class="song-item-title">{{ song.name }} </td>
+        <td class="song-item">{{ song.albumName }}</td>
+        <td class="song-item">{{ song.artistName }}</td>
+        <td class="song-item">{{ song.styleName }}</td>
+        <td class="song-item">{{ song.plays}} </td>
+        <td class="song-item"><button class="remove" data-bs-target="#deleteSong" data-bs-toggle="modal"
+                (click)="prepareSongToDelete(song.id!);"><i class="fa-solid fa-xmark"></i></button>
+                <button class="edit"
+                [routerLink]="['songEdit/', song.id]"><i class="fa-solid fa-pen-to-square"></i></button></td>
+    </tr>
+
+</table>
+
+
+
+<div class="modal fade" id="deleteSong" tabindex="-1" aria-labelledby="deleteSong" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación de borrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Desea eliminar la canción seleccionada? Esta operación no puede deshacerse
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary deleteConfirm" data-bs-dismiss="modal"
+                    (click)="deleteSong();">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

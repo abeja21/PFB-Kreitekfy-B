@@ -1,0 +1,79 @@
+<div class="grid p-fluid">
+    <h2>Ficha de canción</h2>
+    <hr>
+    <div id="formulario" class="form">
+        <form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
+            <div class="form-group">
+                <div class="section form-group">
+                    <input hidden type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id"
+                        #id="ngModel">
+                </div>
+
+                <div class="section form-group">
+                    <label for="name">Titulo de la Cancion</label>
+                    <input type="text" [(ngModel)]="song.name" name="name" class="form-control" id="name"
+                        #name="ngModel" required minlength="3" maxlength="100">
+                </div>
+
+                <div *ngIf="(name.dirty && name.errors)">
+                    <small class="form-tex text-danger" *ngIf="name.errors['required']">
+                        Este campo es requerido
+                    </small>
+                    <small class="form-tex text-danger" *ngIf="name.errors['minlength']">
+                        Este campo tiene que tener una longitud mínima de 3 caracteres
+                    </small>
+                </div>
+
+                <div class="section form-group">
+                    <label for="duration">Duración de la canción</label>
+                    <input type="text" [(ngModel)]="song.duration" name="duration" class="form-control" id="duration"
+                        #duration="ngModel" required minlength="4" maxlength="5">
+                </div>
+
+                <div *ngIf="(duration.dirty && duration.errors)">
+                    <small class="form-tex text-danger" *ngIf="duration.errors['required']">
+                        Este campo es requerido
+                    </small>
+                    <small class="form-tex text-danger" *ngIf="duration.errors['minlength']">
+                        Este campo tiene que tener una longitud mínima de 3 caracteres
+                    </small>
+                </div>
+
+                <div class="section form-group">
+                    <label for="dateLaunch">Fecha de publicación</label>
+                    <input type="date" [(ngModel)]="song.dateLaunch" name="dateLaunch" class="form-control"
+                        id="dateLaunch" #name="ngModel" max="{{date | date:'yyyy-MM-dd'}}">
+                </div>
+
+                <div class="section form-group">
+                    <label for="albumId">Album</label><br>
+                    <p-autoComplete class="except-sections" [(ngModel)]="selectedAlbum" name="selectedAlbum"
+                        [suggestions]="albums" (completeMethod)="getAlbums($event)" field="name"
+                        (onSelect)="albumSelected();" (onClear)="albumUnselected();" [required]="true"
+                        [forceSelection]="true">
+                    </p-autoComplete>
+
+                    <label for="styleId">Estilo</label><br>
+                    <p-autoComplete class="except-sections" [(ngModel)]="selectedStyle" name="selectedStyle"
+                        [suggestions]="styles" (completeMethod)="getStyles($event)" field="name"
+                        (onSelect)="styleSelected();" (onClear)="styleUnselected();" [required]="true"
+                        [forceSelection]="true">
+                    </p-autoComplete>
+
+                    <label for="artistId">Cantante</label> <br>
+                    <p-autoComplete class="except-sections" [(ngModel)]="selectedArtist" name="selectedArtist"
+                        [suggestions]="artist" (completeMethod)="getArtists($event)" field="name"
+                        (onSelect)="artistSelected();" (onClear)="artistUnselected();" [required]="true"
+                        [forceSelection]="true">
+                    </p-autoComplete>
+                </div>
+
+                <div class="buttons">
+                    <button [routerLink]="['/admin']" class="btn btn-secondary">Volver</button>
+                    <button (click)="saveSong()" [routerLink]="['/admin']" class="btn btn-primary"
+                        [disabled]="songForm.invalid">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

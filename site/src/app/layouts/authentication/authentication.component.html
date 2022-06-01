@@ -1,0 +1,17 @@
+<div class="fondo">
+    <div class="logo"></div>
+
+    <div class="wrapper">
+        <h1>¿Quién está escuchando?</h1>
+        <div class="profile-wrap">
+            <div class="profile" *ngFor="let username of user">
+                <a (click)="this.authenticationUser(username.admin, username.name)">
+                <div class="profile-icon profile1">
+                    <img width="150" height="150" src="https://i.imgur.com/axZQeUF.png">
+                </div>
+                <div class="profile-name">{{username.name}} </div>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
