@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,10 @@ import { SongsBestRatedComponent } from './entities/songs-best-rated/songs-best-
 import { SongsForYouComponent } from './entities/songs-for-you/songs-for-you.component';
 import { SongDetailsComponent } from './entities/song-details/song-details.component';
 import { AuthenticationComponent } from './layouts/authentication/authentication.component';
+import { SongFormComponent } from './layouts/backoffice/songs/song-form/song-form.component';
+import { StyleComponent } from './layouts/backoffice/style/style/style.component';
+import { ArtistComponent } from './layouts/backoffice/artist/artist/artist.component';
+import { AlbumComponent } from './layouts/backoffice/album/album/album.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +31,19 @@ import { AuthenticationComponent } from './layouts/authentication/authentication
     SongsBestRatedComponent,
     SongsForYouComponent,
     SongDetailsComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    SongFormComponent,
+    StyleComponent,
+    ArtistComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AutoCompleteModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
