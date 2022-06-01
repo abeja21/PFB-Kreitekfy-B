@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { RatingModule } from "primeng/rating";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +48,8 @@ import { AlbumComponent } from './layouts/backoffice/album/album/album.component
     AutoCompleteModule,
     ReactiveFormsModule,
     RatingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

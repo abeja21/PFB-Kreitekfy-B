@@ -21,7 +21,7 @@ export class SongDetailsService {
     
   }
 
-  public addplays(id:string, song: SongDetails):Observable<SongDetails>{
+  public updateSong(song: SongDetails):Observable<SongDetails>{
 
     let baseUrl = "http://localhost:8080/PFB/songs/"
     

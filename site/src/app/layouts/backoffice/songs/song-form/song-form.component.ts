@@ -147,25 +147,6 @@ export class SongFormComponent implements OnInit {
     this.song!.albumName = undefined;
   }
 
-  includeImageInItem(event: any): void {
-    const inputFile = event.target as HTMLInputElement;
-    const file: File | null = inputFile.files?.item(0) ?? null;
-
-    this.readFileAsString(file!).then(
-      (result) => {
-        const imageType: string = this.getImageType(result);
-        console.log(imageType);
-        const imageBase64: string = this.getImageBase64(result);
-        console.log(imageBase64);
-
-        this.song!.image = imageBase64;
-      },
-      (error) => {
-        console.log('No se pudo cargar la imagen');
-      }
-    );
-  }
-
   private buildForm(): void {
     this.itemForm = this.fb.group({
       id: [{ value: undefined, disabled: true }],

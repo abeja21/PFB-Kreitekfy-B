@@ -6,12 +6,13 @@ import { Song } from 'src/app/layouts/backoffice/model/song.model';
 @Injectable({
   providedIn: 'root'
 })
-export class MostFamousService {
+export class BestRatedService {
 
   constructor(private http: HttpClient) { }
 
-  public getfamousSongs(): Observable<Song[]>{
-    let baseUrl = "http://localhost:8080/PFB/songs?size=5&sort=plays,desc";
+
+  public getnewSongs(): Observable<Song[]>{
+    let baseUrl = "http://localhost:8080/PFB/songs?size=5&sort=rating,desc";
     return this.http.get<Song[]>(baseUrl);
   }
-}
+  }
