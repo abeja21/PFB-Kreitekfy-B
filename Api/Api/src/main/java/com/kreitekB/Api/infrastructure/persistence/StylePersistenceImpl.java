@@ -46,4 +46,9 @@ public class StylePersistenceImpl implements StylePersistence {
         StyleSpecification specification = new StyleSpecification(SearchCriteriaHelper.fromFilterString(filter));
         return this.styleRepository.findAll(specification, pageable);
     }
+
+    @Override
+    public List<Style> getStylesByName(String partialName) {
+        return this.styleRepository.findByNameContainsIgnoreCase(partialName);
+    }
 }
