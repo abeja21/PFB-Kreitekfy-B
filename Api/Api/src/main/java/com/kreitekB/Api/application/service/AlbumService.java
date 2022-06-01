@@ -17,4 +17,6 @@ public interface AlbumService {
     void deleteAlbum(Long albumId);
 
     Page<AlbumDTO> getAlbumsByCriteriaStringPaged(Pageable pageable, String filter);
+
+    List<AlbumDTO> getAlbumsByName(String partialName);
 }

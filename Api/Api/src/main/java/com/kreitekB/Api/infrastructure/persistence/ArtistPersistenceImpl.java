@@ -48,4 +48,9 @@ public class ArtistPersistenceImpl implements ArtistPersistence {
         ArtistSpecification specification = new ArtistSpecification(SearchCriteriaHelper.fromFilterString(filter));
         return this.artistRepository.findAll(specification, pageable);
     }
+
+    @Override
+    public List<Artist> getArtistsByName(String partialName) {
+        return this.artistRepository.findByNameContainsIgnoreCase(partialName);
+    }
 }

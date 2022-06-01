@@ -18,4 +18,6 @@ public interface StyleService {
     void deleteStyle(Long styleId);
 
     Page<StyleDTO> getStylesByCriteriaStringPaged(Pageable pageable, String filter);
+
+    List<StyleDTO> getStylesByName(String partialName);
 }

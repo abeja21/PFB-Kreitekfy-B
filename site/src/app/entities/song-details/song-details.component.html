@@ -17,7 +17,7 @@
       <p class="artist">Artista/s: {{song.artistName}}</p>
       <p class="style">Estilo: {{song.styleName}}</p>
       <p class="duration">Duración: {{song.duration}} mins</p>
-      <p-rating value="${'val'}" [stars]="4" [(ngModel)]="avg" [cancel]="false"></p-rating><br>
+      <p-rating (onRate)="updateRating($event)" [stars]="4" [(ngModel)]="avg" [cancel]="false"></p-rating><br>
       <i (click)="updateplays()" class="fa-solid fa-play"></i>
     </div>
   </section>

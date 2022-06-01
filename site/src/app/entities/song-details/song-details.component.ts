@@ -60,7 +60,7 @@ export class SongDetailsComponent implements OnInit {
     this.avg = Math.round(this.avg)
   }
 
-  updateRating(){
-    console.log(this.avg)
+  updateRating(stars: any){
+    console.log(stars)
   }
 }
