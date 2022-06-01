@@ -20,6 +20,8 @@ public class SongDTO implements Serializable {
 
     private Date dateLaunch=new Date();
 
+    private Integer plays;
+
     private Long albumId;
 
     private String albumName;
@@ -123,6 +125,14 @@ public class SongDTO implements Serializable {
 
     public void setStyleName(String styleName) {
         this.styleName = styleName;
+    }
+
+    public Integer getPlays() {
+        return plays;
+    }
+
+    public void setPlays(Integer plays) {
+        this.plays = plays;
     }
 
     public List<Rating> getRating() {

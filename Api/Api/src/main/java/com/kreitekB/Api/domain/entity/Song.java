@@ -1,12 +1,14 @@
 package com.kreitekB.Api.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "songs")
@@ -22,6 +24,9 @@ public class Song {
 
     @Column
     private String duration;
+
+    @Column
+    private Integer plays;
 
 
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
@@ -41,7 +46,7 @@ public class Song {
     private Style style;
 
     @OneToMany(mappedBy = "song",cascade = CascadeType.ALL)
-    private List<Rating> ratings;
+    Set<Rating> rating;
 
     public long getId() {
         return id;
@@ -99,12 +104,22 @@ public class Song {
         this.style = style;
     }
 
-
-    public List<Rating> getRatings() {
-        return ratings;
+    public Set<Rating> getRatings() {
+        return rating;
     }
 
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
+    public void setRatings(Set<Rating> ratings) {
+        this.rating = ratings;
     }
+
+    public Integer getPlays() {
+        return plays;
+    }
+
+    public void setPlays(Integer plays) {
+        this.plays = plays;
+    }
+
+
 }
+
