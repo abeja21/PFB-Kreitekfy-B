@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsSongsComponent } from 'src/app/entities/news-songs/news-songs.component';
 import { NewSongsService } from 'src/app/entities/news-songs/service/new-songs.service';
+import { BestRatedService } from 'src/app/entities/songs-best-rated/services/best-rated.service';
+import { MostFamousService } from 'src/app/entities/songs-most-famous/service/most-famous.service';
 import { Song } from '../backoffice/model/song.model';
 import { BackofficeService } from '../backoffice/service/backoffice.service';
 
@@ -18,13 +20,19 @@ export class PlayerComponent implements OnInit {
   songList: Song[] = []
   songIdToDelete!: number
   styleFilter!: string;
+
+  songListNew: Song[] = []
+  songListrated: Song[] = []
+  songListFamous: Song[] = []
   
   newSongComponent?: NewsSongsComponent
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private backoffice: BackofficeService,
-              private newsongservice: NewSongsService) { }
+              private newsongservice: NewSongsService,
+              private ratedsongservice: BestRatedService,
+              private mostfamousservice: MostFamousService) { }
 
   ngOnInit(): void {
     const entryParam: string = this.route.snapshot.paramMap.get("name")!
@@ -75,6 +83,21 @@ export class PlayerComponent implements OnInit {
     this.newsongservice.getnewSongs(filters).subscribe({
       next: (data: any) => {
         console.log(data.content)
+        this.songListNew = data.content
+      }
+    })
+
+    this.ratedsongservice.getratedSongs(filters).subscribe({
+      next: (data: any) => {
+        console.log(data.content)
+        this.songListrated = data.content
+      }
+    })
+
+    this.mostfamousservice.getfamousSongs(filters).subscribe({
+      next: (data: any) => {
+        console.log(data.content)
+        this.songListFamous = data.content
       }
     })
   }

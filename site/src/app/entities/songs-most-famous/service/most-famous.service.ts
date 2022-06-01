@@ -10,8 +10,11 @@ export class MostFamousService {
 
   constructor(private http: HttpClient) { }
 
-  public getfamousSongs(): Observable<Song[]>{
+  public getfamousSongs(filters?: string): Observable<Song[]>{
     let baseUrl = "http://localhost:8080/PFB/songs?size=5&sort=plays,desc";
+    if(filters) {
+      baseUrl  =  baseUrl + "&filter=" + filters
+    }
     return this.http.get<Song[]>(baseUrl);
   }
 }

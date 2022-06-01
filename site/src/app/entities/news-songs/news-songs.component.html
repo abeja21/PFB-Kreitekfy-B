@@ -1,7 +1,6 @@
-<h4>Novedades</h4>
-<div class="border-bottom"></div>
 
-<div class="card" *ngFor="let song of songList">
+
+<div class="card" *ngIf="song">
     <div class="cover">
       <a [routerLink]="['/song/',song.id]"><img [src]="'data:image/jpeg;base64,'+song.image" alt="cover" /></a>
       <div class="play-icon">

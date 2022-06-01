@@ -85,3 +85,26 @@ a:focus {
   margin: 1rem;
   color: white;
 }
+.border-bottom {
+  display: grid;
+  grid-gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-top: 1px solid #444;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+}
+.tira{
+  display: inline-block;
+  width: 320px;
+  border-radius: 4px;
+  padding: 26px;
+  overflow: hidden;
+  background-color: #181818;
+  transition: background-color 0.4s;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  margin: auto 1em;
+}
+.card:hover {
+  background-color: #282828;
+}

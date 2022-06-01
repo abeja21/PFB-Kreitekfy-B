@@ -11,8 +11,12 @@ export class BestRatedService {
   constructor(private http: HttpClient) { }
 
 
-  public getnewSongs(): Observable<Song[]>{
+  public getratedSongs(filters?: string): Observable<Song[]>{
     let baseUrl = "http://localhost:8080/PFB/songs?size=5&sort=rating,desc";
+
+    if(filters) {
+      baseUrl  =  baseUrl + "&filter=" + filters
+    }
     return this.http.get<Song[]>(baseUrl);
   }
   }

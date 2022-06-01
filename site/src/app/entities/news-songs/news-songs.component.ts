@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Song } from 'src/app/layouts/backoffice/model/song.model';
 import { NewSongsService } from './service/new-songs.service';
 
@@ -8,6 +8,8 @@ import { NewSongsService } from './service/new-songs.service';
   styleUrls: ['./news-songs.component.scss'],
 })
 export class NewsSongsComponent implements OnInit {
+  @Input() song?: Song;
+  @Output() click: EventEmitter<number> = new EventEmitter<number>();
   songList: Song[] = [];
   styleFilter?: string;
 
@@ -15,6 +17,10 @@ export class NewsSongsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getnewSongs()
+  }
+
+  public pulsaboton(){
+    this.click.emit(this.song?.id)
   }
 
   getnewSongs(filters?: any) {
