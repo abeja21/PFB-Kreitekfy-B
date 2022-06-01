@@ -14,9 +14,10 @@ export class NewsSongsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getnewSongs();
+    
   }
 
-  getnewSongs() {
+  public getnewSongs() {
     this.newSongService.getnewSongs().subscribe({
       next: (data: any) => {
         this.songList = data.content;
