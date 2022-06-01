@@ -5,8 +5,7 @@
         <form *ngIf="song" #songForm="ngForm" name="songForm" role="form" novalidate autocomplete="off">
 
             <div class="form-group">
-                <input hidden type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id"
-                    #id="ngModel">
+                <input hidden type="number" [(ngModel)]="song.id" name="id" class="form-control" id="id" #id="ngModel">
             </div>
 
             <div class="form-group">
@@ -52,23 +51,30 @@
                     #name="ngModel" max="{{date | date:'yyyy-MM-dd'}}">
             </div>
 
-            <label for="styleId">Estilo</label><br>
-            <p-autoComplete [(ngModel)]="selectedStyle" name="selectedStyle" [suggestions]="styles"
-                (completeMethod)="getStyles($event)" field="name" (onSelect)="styleSelected();"
-                (onClear)="styleUnselected();" [required]="true" [forceSelection]="true">
-            </p-autoComplete>
+            <div class="form-group">
+                <label for="albumId">Album</label><br>
+                        <p-autoComplete [(ngModel)]="selectedAlbum" name="selectedAlbum" [suggestions]="albums"
+                            (completeMethod)="getAlbums($event)" field="name" (onSelect)="albumSelected();"
+                            (onClear)="albumUnselected();" [required]="true" [forceSelection]="true">
+                        </p-autoComplete>
 
-            <label for="artistId">Cantante</label> <br>
-            <p-autoComplete [(ngModel)]="selectedArtist" name="selectedArtist" [suggestions]="artist"
-                (completeMethod)="getArtists($event)" field="name" (onSelect)="artistSelected();"
-                (onClear)="artistUnselected();" [required]="true" [forceSelection]="true"></p-autoComplete>
+                <label for="styleId">Estilo</label><br>
+                <p-autoComplete [(ngModel)]="selectedStyle" name="selectedStyle" [suggestions]="styles"
+                    (completeMethod)="getStyles($event)" field="name" (onSelect)="styleSelected();"
+                    (onClear)="styleUnselected();" [required]="true" [forceSelection]="true">
+                </p-autoComplete>
+
+                <label for="artistId">Cantante</label> <br>
+                <p-autoComplete [(ngModel)]="selectedArtist" name="selectedArtist" [suggestions]="artist"
+                    (completeMethod)="getArtists($event)" field="name" (onSelect)="artistSelected();"
+                    (onClear)="artistUnselected();" [required]="true" [forceSelection]="true"></p-autoComplete>
 
 
-            <div class="buttonsForm">
-                <button (click)="saveSong()" [disabled]="songForm.invalid">Guardar</button>
-                <button [routerLink]="['/admin']">Volver</button>
+                <div class="buttonsForm">
+                    <button (click)="saveSong()" [disabled]="songForm.invalid">Guardar</button>
+                    <button [routerLink]="['/admin']">Volver</button>
+                </div>
             </div>
-
         </form>
     </div>
 </div>
