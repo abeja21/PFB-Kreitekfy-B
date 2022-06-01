@@ -1,6 +1,8 @@
 package com.kreitekB.Api.domain.persistence;
 
 import com.kreitekB.Api.domain.entity.Style;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 import java.util.List;
@@ -15,4 +17,5 @@ public interface StylePersistence {
     Style saveStyle(Style style);
 
     void deleteStyle(Long styleId);
+    Page<Style> findAll(Pageable pageable, String filter);
 }
