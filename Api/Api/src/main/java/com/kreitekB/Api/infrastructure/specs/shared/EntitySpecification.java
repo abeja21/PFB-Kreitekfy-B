@@ -5,6 +5,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class EntitySpecification<T> {
@@ -44,12 +45,16 @@ public abstract class EntitySpecification<T> {
                             root.get(criteria.getKey()), criteria.getValue()));
                 }
             } else if (criteria.getOperation().equals(SearchOperation.MATCH)) {
-
+                String[] valueSplited = criteria.getKey().split("\\.");
+                if (valueSplited.length==1){
+                    predicates.add(builder.like(
+                            builder.lower(root.get(criteria.getKey())),
+                            "%" + criteria.getValue().toString().toLowerCase() + "%"));
+                }else{
                 predicates.add(builder.like(
-                        builder.lower(root.get(criteria.getKey())),
+                        builder.lower(root.join(valueSplited[0]).get(valueSplited[1])),
                         "%" + criteria.getValue().toString().toLowerCase() + "%"));
-
-
+                }
             } else if (criteria.getOperation().equals(SearchOperation.MATCH_END)) {
                 predicates.add(builder.like(
                         builder.lower(root.get(criteria.getKey())),

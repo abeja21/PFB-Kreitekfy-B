@@ -39,13 +39,13 @@ export class BackofficeComponent implements OnInit {
 
 
     if(this.styleFilter) {
-      filters.push("style.name:EQUAL:" + this.styleFilter);
+      filters.push("style.name:MATCH:" + this.styleFilter);
     }
     if(this.singerFilter) {
-      filters.push("artist.name:EQUAL:" + this.singerFilter);
+      filters.push("artist.name:MATCH:" + this.singerFilter);
     }
     if(this.albumFilter) {
-      filters.push("album.name:EQUAL:" + this.albumFilter);
+      filters.push("album.name:MATCH:" + this.albumFilter);
     }
     if(this.titleFilter) {
       filters.push("name:MATCH:" + this.titleFilter);
@@ -73,16 +73,10 @@ export class BackofficeComponent implements OnInit {
 
     this.backOfficeService.getSongs(this.size, filters).subscribe({
       next: (data: any) => {
-
         this.songList = data.content
-
-        
-        console.log(this.songList)
-        
+        console.log(this.songList) 
       }
     })
-
-
   }
 
   public prepareSongToDelete(songId: number): void {

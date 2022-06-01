@@ -12,7 +12,9 @@ export class SongDetailsComponent implements OnInit {
   date: Date = new Date
   song!: SongDetails
   username!: string
-  counter: number = 0;
+  valoration: number[] = []
+  avg: number = 2
+  ratingUser!: number
 
   constructor(private songdetailsService: SongDetailsService,
   private route: Router, private router:ActivatedRoute) { }
@@ -27,32 +29,43 @@ export class SongDetailsComponent implements OnInit {
     this.getSongDetails()
   }
 
-  increment() {
-    this.counter++;
-    console.log(this.counter)
-    this.updateplays()
-    
-  }
-
   public getSongDetails(){
     const entryParam = this.router.snapshot.paramMap.get("id")!
     this.songdetailsService.getSongDetails(entryParam).subscribe({
       next:(data)=>{
-        console.log(data)
         this.song = data
+        this.valoration = data.rating
+        this.rating()
       },
       error: (err) => {console.log(err);}
     })
   }
 
   public updateplays(){
-    const entryParam = this.router.snapshot.paramMap.get("id")!
-    this.songdetailsService.addplays(entryParam, this.counter).subscribe({
+    this.song.plays++
+    this.songdetailsService.updateSong(this.song).subscribe({
       next:(data) =>{
-        console.log(data)
       },
       error: (err) => {console.log(err);}
     })
   }
 
+    async rating(){
+    let sum = 0
+    for (let i = 0 ; i < this.valoration.length; i++){
+          sum += this.valoration[i]
+    }
+    this.avg = sum / this.valoration.length || 0
+    this.avg = Math.round(this.avg)
+  }
+
+  updateRating(stars: any){
+    this.song.rating.push(stars.value)
+    console.log(this.song.rating)
+    this.songdetailsService.updateSong(this.song).subscribe({
+      next:(data) =>{
+      },
+      error: (err) => {console.log(err);}
+    })
+  }
 }

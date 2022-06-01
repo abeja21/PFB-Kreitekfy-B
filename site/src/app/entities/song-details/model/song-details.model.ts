@@ -7,7 +7,7 @@ export class SongDetails{
     styleName: string;
     albumName: string;
     image: string;
-    Rating: number[];
+    rating: number[];
 
 
 
@@ -20,7 +20,7 @@ export class SongDetails{
     styleName: string, 
     albumName: string, 
     image: string, 
-    Rating: number[]
+    rating: number[]
 ) {
     this.name = name
     this.artistName = artistName
@@ -30,7 +30,7 @@ export class SongDetails{
     this.styleName = styleName
     this.albumName = albumName
     this.image = image
-    this.Rating = Rating
+    this.rating = rating
   }
 
 

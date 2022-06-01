@@ -1,6 +1,7 @@
 <header>
   <div class="nav-left">
-    <input class="nav-search" type="text" placeholder="Buscar" />
+    <input class="nav-search" type="text" placeholder="Buscar" [(ngModel)]="styleFilter"/>
+    <button id="btnSearch" class="btn btn-secondary" (click)="searchByFilters()">Buscar</button>
   </div>
   <div class="nav-right">
     <a class="username">{{name}} </a>
